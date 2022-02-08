@@ -1,0 +1,6 @@
+C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\bin\Debug\ConsoleUI.exe
+C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\bin\Debug\ConsoleUI.pdb
+C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\obj\Debug\ConsoleUI.csproj.AssemblyReference.cache
+C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\obj\Debug\ConsoleUI.csproj.CoreCompileInputs.cache
+C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\obj\Debug\ConsoleUI.exe
+C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\obj\Debug\ConsoleUI.pdb
