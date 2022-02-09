@@ -10,12 +10,13 @@ namespace ConsoleUI.LevelGui
     public static class DefineMap
     {
         static string[,] mapAreas = new string[100, 100];
+        static (int, int) playerLocation = (0, 0);
 
         public static void FillMap(List<Area> areas)
         {
             MakeEmptyMap();
 
-            foreach(Area area in areas)
+            foreach (Area area in areas)
             {
                 mapAreas[area.Cordinate.Item1, area.Cordinate.Item2] = area.Type;
             }
@@ -30,7 +31,13 @@ namespace ConsoleUI.LevelGui
                     mapAreas[x, y] = "Wall";
                 }
             }
-        } 
+        }
+
+        public static string MapItemType(int horizontalFromPoint, int verticalFromPoint)
+        {
+            string itemType = mapAreas[(playerLocation.Item1 + horizontalFromPoint), (playerLocation.Item2 + verticalFromPoint)];
+            return itemType;
+        }
 
 
 

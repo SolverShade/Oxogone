@@ -4,3 +4,5 @@ C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\obj\Debug\ConsoleUI.cspr
 C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\obj\Debug\ConsoleUI.csproj.CoreCompileInputs.cache
 C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\obj\Debug\ConsoleUI.exe
 C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\obj\Debug\ConsoleUI.pdb
+C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\bin\Debug\Colors.Net.dll
+C:\Users\HarambeCrompten\source\repos\Oxogone\ConsoleUI\obj\Debug\ConsoleUI.csproj.CopyComplete
