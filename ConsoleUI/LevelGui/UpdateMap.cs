@@ -1,4 +1,6 @@
 ﻿using Colors.Net;
+using Colors.Net.StringColorExtensions;
+using ConsoleUI.Map;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,31 +11,49 @@ namespace ConsoleUI.LevelGui
 {
     public static class UpdateMap
     {
-        static readonly int[] mapLines = new int[] {7 ,9, 10, 11, 12, 13, 15};
-        static readonly int[] spaceLines = new int[] { 6, 5, 4, 1, 4, 5, 6 };
-        static readonly char[][] mapItems = new char[][] { new char[] { 'N' }, new char[] { '*', '*', '*', },
-            new  char[] { '*', '*', '*', '*', '*', }, new char[] {'W', ' ',  '*', '*', '*', '*', '*', '*', '*', ' ', 'E' }, 
-            new  char[] { '*', '*', '*', '*', '*', }, new char[] { '*', '*', '*', }, new  char[] {'S'} };
+        const int MINIMAPLINE = 7;
+        const int MINIMAPSPACE = 10;
+        static readonly int[] marks = new int[] { 3, 5, 7, 5, 3};
 
         public static void Update()
         {
-            int mapIndex = 0;
 
-            for (int lineIndex = 0; lineIndex < mapLines.Length; lineIndex++)
+            for(int lineIndex = 0; lineIndex < marks.Length; lineIndex++)
             {
-                UILineEdit.setGuiLines(mapLines[lineIndex], spaceLines[lineIndex]);
-                if(mapIndex < mapItems.Length)
-                    foreach(char item in mapItems[mapIndex])
-                    {
-                        string colorValue = DefineMap.MapItemType(0, 0); // TO:DO get values from an array perhaps to get the areas's types near the player
+                //Gets the correct cordinates where the next next should be written. the horizontal spacing is the median of each marks value.
+                UILineEdit.setGuiLines((MINIMAPLINE + lineIndex), (MINIMAPSPACE - marks[lineIndex]/2));
 
-                        ColoredConsole.Write(item);
-                    }
-                mapIndex++;
+                for (int markIndex = 0; markIndex < marks[lineIndex]; markIndex++)
+                {
+                    string areaType = PlayerLocation.retriveAreaGroup(markIndex, marks[lineIndex], lineIndex, marks.Length);
+                    RichString coloredMark = setMarkType(areaType);
+                    ColoredConsole.Write($"{coloredMark}");
+                }
+            }
+        }
+
+        private static RichString setMarkType(string areaType)
+        {
+            RichString pendingMark;
+
+            switch (areaType)
+            {
+                case "Player":
+                     pendingMark = "*".Green();
+                    break;
+                case "Wall":
+                     pendingMark = "*".Gray();
+                    break;
+                case "Room":
+                    pendingMark = "*".White();
+                    break;
+                default:
+                    pendingMark = "*".Red();
+                    break;
             }
 
-
-
+                    return pendingMark;
         }
+
     }
 }

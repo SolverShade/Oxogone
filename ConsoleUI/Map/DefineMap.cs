@@ -9,8 +9,7 @@ namespace ConsoleUI.LevelGui
 {
     public static class DefineMap
     {
-        static string[,] mapAreas = new string[100, 100];
-        static (int, int) playerLocation = (0, 0);
+        public static string[,] mapAreas = new string[100, 100];
 
         public static void FillMap(List<Area> areas)
         {
@@ -33,13 +32,15 @@ namespace ConsoleUI.LevelGui
             }
         }
 
+        /*
+
         public static string MapItemType(int horizontalFromPoint, int verticalFromPoint)
         {
             string itemType = mapAreas[(playerLocation.Item1 + horizontalFromPoint), (playerLocation.Item2 + verticalFromPoint)];
             return itemType;
         }
 
-
+        */
 
     }
 }

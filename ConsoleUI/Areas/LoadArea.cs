@@ -9,7 +9,7 @@ namespace ConsoleUI.Areas
 {
     public class LoadArea
     {
-        List<Area> areas = new List<Area>();
+        static List<Area> areas = new List<Area>();
         StoryText storyText = new StoryText();
         Area currentArea;
 
