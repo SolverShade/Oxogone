@@ -1,4 +1,5 @@
 ﻿using ConsoleUI.Areas;
+using ConsoleUI.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,8 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            LoadArea loadArea = new LoadArea();
-
-            loadArea.Start();
-
-            //Console.SetCursorPosition(0, Console.CursorTop - 1);
-            //Console.WriteLine("Over previous line!!!");
+            DeveloperMenu.WriteMenu();
+            DeveloperMenu.UserCommand();
 
             Console.ReadLine();
         }

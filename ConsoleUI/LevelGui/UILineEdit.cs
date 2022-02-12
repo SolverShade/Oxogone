@@ -24,6 +24,10 @@ namespace ConsoleUI
             {
                 GetLowerLine(lineLocation, cursorPlacement);
             }
+            else if(currentLinePosition == lineLocation)
+            {
+                Console.SetCursorPosition(cursorPlacement, (currentLinePosition - 1));
+            }
         }
 
         private static void GetUpperLine(int lineLocation, int cursorPlacement)
