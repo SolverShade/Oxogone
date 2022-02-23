@@ -9,21 +9,27 @@ namespace ConsoleUI.Map
 {
     public static class PlayerLocation
     {
-        public static (int, int) Location = (10, 10);
+        public static (int, int) location = (10, 10);
 
-        private static List<string> bannedAreas = new List<string>() { "Wall", "LockedDoor" };
-
-        public static void MoveArea(int horizontalMove, int verticalMove)
+        public static void Update(string direction)
         {
-            string requstedArea = DefineMap.mapAreas[(Location.Item1 + horizontalMove), (Location.Item2 + verticalMove)];
-            if (bannedAreas.Contains(requstedArea))
+            switch (direction)
             {
-                Console.WriteLine("CANT GO THERE!!!");
-            }
-            else
-            {
-                Location = ((Location.Item1 + horizontalMove), (Location.Item2 + verticalMove));
-            }
+                case "N":
+                    location.Item2++;
+                    break;
+                case "S":
+                    location.Item2--;
+                    break;
+                case "E":
+                    location.Item1++;
+                    break;
+                case "W":
+                    location.Item1--;
+                    break;
+                default:
+                    break;
+            } 
         }
 
         //inclusive numbers could get confusing. refactor to make more sense? 
@@ -35,8 +41,8 @@ namespace ConsoleUI.Map
             int horizontalFromPlayer = (middleArea - areasInLine) + currentMark;
             int verticalFromPlayer = (lines - middleLine) - currentLine;
 
-            int xCordinate = Location.Item1 + horizontalFromPlayer;
-            int yCordinate = Location.Item2 + verticalFromPlayer;
+            int xCordinate = location.Item1 + horizontalFromPlayer;
+            int yCordinate = location.Item2 + verticalFromPlayer;
 
             string areaType;
 

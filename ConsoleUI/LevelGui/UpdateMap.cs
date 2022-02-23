@@ -1,6 +1,5 @@
 ﻿using Colors.Net;
 using Colors.Net.StringColorExtensions;
-using ConsoleUI.Areas;
 using ConsoleUI.Map;
 using System;
 using System.Collections.Generic;
@@ -12,17 +11,12 @@ namespace ConsoleUI.LevelGui
 {
     public static class UpdateMap
     {
-        const int MINIMAPLINE = 12;
-        const int MINIMAPSPACE = 8;
-        const int MAXMINIMAPLINES = 8;
-
+        const int MINIMAPLINE = 7;
+        const int MINIMAPSPACE = 10;
         static readonly int[] marks = new int[] { 3, 5, 7, 5, 3};
 
         public static void Update()
         {
-            ClearMiniMap();
-
-            LoadIdenitifers();
 
             for(int lineIndex = 0; lineIndex < marks.Length; lineIndex++)
             {
@@ -48,13 +42,10 @@ namespace ConsoleUI.LevelGui
                      pendingMark = "*".Green();
                     break;
                 case "Wall":
-                     pendingMark = "*".DarkGray();
+                     pendingMark = "*".Gray();
                     break;
                 case "Room":
                     pendingMark = "*".White();
-                    break;
-                case "Door":
-                    pendingMark = "*".Yellow();
                     break;
                 default:
                     pendingMark = "*".Red();
@@ -62,30 +53,6 @@ namespace ConsoleUI.LevelGui
             }
 
                     return pendingMark;
-        }
-
-        //cleanup... use  constants? 
-        private static void LoadIdenitifers()
-        {
-            UILineEdit.setGuiLines((MINIMAPLINE - 4), MINIMAPSPACE - 2);
-            Console.WriteLine(LoadArea.currentArea.Type);
-            UILineEdit.setGuiLines((MINIMAPLINE - 2), MINIMAPSPACE);
-            ColoredConsole.Write("N".Red());
-            UILineEdit.setGuiLines((MINIMAPLINE + marks.Length + 1), MINIMAPSPACE);
-            ColoredConsole.Write("S".Cyan());
-            UILineEdit.setGuiLines((MINIMAPLINE + 2), MINIMAPSPACE - 5);
-            ColoredConsole.Write("W".Yellow());
-            UILineEdit.setGuiLines((MINIMAPLINE + 2), MINIMAPSPACE + 5);
-            ColoredConsole.Write("E".Green());
-        }
-
-        private static void ClearMiniMap()
-        {
-            for (int lineIndex = 0; lineIndex < MAXMINIMAPLINES; lineIndex++)
-            {
-                UILineEdit.setGuiLines(MINIMAPLINE + lineIndex);
-                Console.WriteLine(new string(' ', Console.WindowWidth));
-            }
         }
 
     }
