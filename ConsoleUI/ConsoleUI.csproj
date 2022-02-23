@@ -49,7 +49,6 @@
     <Compile Include="Areas\Area.cs" />
     <Compile Include="LevelGui\UpdateMap.cs" />
     <Compile Include="Map\MapCordinate.cs" />
-    <Compile Include="LevelGui\ActionsText.cs" />
     <Compile Include="Map\DefineMap.cs" />
     <Compile Include="LevelGui\StoryText.cs" />
     <Compile Include="Map\PlayerLocation.cs" />
