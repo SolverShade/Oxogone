@@ -9,10 +9,10 @@ namespace ConsoleUI.Areas
     public class Area
     {
         public (int,int) Cordinate { get; set; }
-        public List<string> Text { get; set; }
+        public string Text { get; set; }
         public string Type { get; set; }
 
-        public Area((int, int) _cordinate, List<string> _text, string _type) 
+        public Area((int, int) _cordinate, string _text, string _type) 
         {
             Cordinate = _cordinate;
             Text = _text;

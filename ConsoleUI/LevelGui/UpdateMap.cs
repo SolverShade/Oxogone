@@ -1,7 +1,7 @@
 ﻿using Colors.Net;
 using Colors.Net.StringColorExtensions;
 using ConsoleUI.Areas;
-using ConsoleUI.Map;
+using ConsoleUI.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;

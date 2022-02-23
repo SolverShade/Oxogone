@@ -1,5 +1,5 @@
 ﻿using ConsoleUI.Areas;
-using ConsoleUI.Map;
+using ConsoleUI.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +39,7 @@ namespace ConsoleUI.User
 
             Area nextArea = null;
 
-            foreach (Area area in LoadArea.areas)
+            foreach (Area area in Map.mapAreas)
             {
                 if(area.Cordinate == PlayerLocation.Location)
                 {

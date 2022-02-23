@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleUI.Map
+namespace ConsoleUI.Mapping
 {
     public static class PlayerLocation
     {
@@ -15,7 +15,7 @@ namespace ConsoleUI.Map
 
         public static void MoveArea(int horizontalMove, int verticalMove)
         {
-            string requstedArea = DefineMap.mapAreas[(Location.Item1 + horizontalMove), (Location.Item2 + verticalMove)];
+            string requstedArea = Map.mapAreas[(Location.Item1 + horizontalMove), (Location.Item2 + verticalMove)].Type;
             if (bannedAreas.Contains(requstedArea))
             {
                 Console.WriteLine("CANT GO THERE!!!");
@@ -46,7 +46,7 @@ namespace ConsoleUI.Map
             }
             else
             {
-                areaType = DefineMap.mapAreas[xCordinate, yCordinate];
+                areaType = Map.mapAreas[xCordinate, yCordinate].Type;
             }
              
             return areaType;
