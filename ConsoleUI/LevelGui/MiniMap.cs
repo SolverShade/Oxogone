@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.LevelGui
 {
-    public static class UpdateMap
+    public static class MiniMap
     {
         const int MINIMAPLINE = 12;
         const int MINIMAPSPACE = 8;
@@ -18,7 +18,7 @@ namespace ConsoleUI.LevelGui
 
         static readonly int[] marks = new int[] { 3, 5, 7, 5, 3};
 
-        public static void Update()
+        public static void Update(Player player)
         {
             ClearMiniMap();
 
@@ -31,7 +31,22 @@ namespace ConsoleUI.LevelGui
 
                 for (int markIndex = 0; markIndex < marks[lineIndex]; markIndex++)
                 {
-                    string areaType = PlayerLocation.retriveAreaGroup(markIndex, marks[lineIndex], lineIndex, marks.Length);
+                    int halfOfLines = (int)(Math.Ceiling((double)marks.Length / 2));
+                    int halfOfLineMarks = (int)(Math.Ceiling((double)marks[lineIndex] / 2));
+
+                    int horizontalFromPlayer = (halfOfLineMarks - marks[lineIndex]) + markIndex;
+                    int verticalFromPlayer = (marks.Length - halfOfLines) - lineIndex;
+
+                    int mapXCordinate = player.XCordinate + horizontalFromPlayer;
+                    int mapYCordinate = player.YCordinate + verticalFromPlayer;
+
+                    string areaType = Map.mapAreas[mapXCordinate, mapYCordinate].Type;
+
+                    if (horizontalFromPlayer == 0 && verticalFromPlayer == 0)
+                    {
+                        areaType = "Player";
+                    }
+
                     RichString coloredMark = setMarkType(areaType);
                     ColoredConsole.Write($"{coloredMark}");
                 }
@@ -68,7 +83,7 @@ namespace ConsoleUI.LevelGui
         private static void LoadIdenitifers()
         {
             UILineEdit.setGuiLines((MINIMAPLINE - 4), MINIMAPSPACE - 2);
-            Console.WriteLine(LoadArea.currentArea.Type);
+            //Console.WriteLine(Map.mapAreas[]); reImplement later 
             UILineEdit.setGuiLines((MINIMAPLINE - 2), MINIMAPSPACE);
             ColoredConsole.Write("N".Red());
             UILineEdit.setGuiLines((MINIMAPLINE + marks.Length + 1), MINIMAPSPACE);

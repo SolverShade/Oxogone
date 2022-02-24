@@ -51,7 +51,8 @@ namespace ConsoleUI.Menu
                     Console.WriteLine("Press Any Key To Exit");
                     break;
                 case "8":
-                    LoadArea.Start();
+                    LoadArea loadArea = new LoadArea();
+                    loadArea.Start();
                     break;
                 case "Room":
                     DisplayTextArray(PlannedItems.Rooms);

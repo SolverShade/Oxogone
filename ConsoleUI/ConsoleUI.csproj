@@ -48,11 +48,11 @@
   <ItemGroup>
     <Compile Include="Areas\Area.cs" />
     <Compile Include="Areas\LoadArea.cs" />
-    <Compile Include="LevelGui\UpdateMap.cs" />
+    <Compile Include="LevelGui\MiniMap.cs" />
     <Compile Include="Mapping\MapCordinate.cs" />
     <Compile Include="Mapping\Map.cs" />
     <Compile Include="LevelGui\StoryText.cs" />
-    <Compile Include="Mapping\PlayerLocation.cs" />
+    <Compile Include="Mapping\Player.cs" />
     <Compile Include="Menu\DeveloperMenu.cs" />
     <Compile Include="Menu\PlannedItems.cs" />
     <Compile Include="Program.cs" />

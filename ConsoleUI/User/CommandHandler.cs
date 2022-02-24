@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.User
 {
-    public static class CommandHandler
+    public class CommandHandler
     {
         const int userInputLine = 29;
         const int visableConsoleLines = 120;
-        public static void EnterCommand()
+        public Area NextArea;
+
+        public void EnterCommand(Player player)
         {
             UILineEdit.setGuiLines(userInputLine, 0);
             string userCommand = Console.ReadLine();
@@ -22,16 +24,16 @@ namespace ConsoleUI.User
             switch (userCommand)
             {
                 case "n":
-                    PlayerLocation.MoveArea(0, 1);
+                    player.MoveArea(0, 1);
                     break;
                 case "s":
-                    PlayerLocation.MoveArea(0, -1);
+                    player.MoveArea(0, -1);
                     break;
                 case "e":
-                    PlayerLocation.MoveArea(1, 0);
+                    player.MoveArea(1, 0);
                     break;
                 case "w":
-                    PlayerLocation.MoveArea(-1, 0);
+                    player.MoveArea(-1, 0);
                     break;
                 default:
                     break;
@@ -41,18 +43,18 @@ namespace ConsoleUI.User
 
             foreach (Area area in Map.mapAreas)
             {
-                if(area.Cordinate == PlayerLocation.Location)
+                if(area.Cordinate == (player.XCordinate, player.YCordinate))
                 {
                     nextArea = area;
                 }
             }
 
-            Console.Clear(); // find a way to clear the console smoothly. clear on fullscreen or remove miniMap bugging on fullscreen. 
+            NextArea = nextArea;
 
-            LoadArea.Load(nextArea);
+            Console.Clear(); // find a way to clear the console smoothly. clear on fullscreen or remove miniMap bugging on fullscreen. 
         }
 
-        private static void ClearUserInput()
+        private void ClearUserInput()
         {
             UILineEdit.setGuiLines(userInputLine, 0);
             Console.WriteLine(new string(' ', Console.WindowWidth));

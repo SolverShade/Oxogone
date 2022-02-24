@@ -9,32 +9,34 @@ using ConsoleUI.Mapping;
 
 namespace ConsoleUI.Areas
 {
-    public static class LoadArea
+    public class LoadArea
     {
-        public static List<Area> areas = new List<Area>();
-        static StoryText storyText = new StoryText();
-        public static Area currentArea;
+        StoryText storyText = new StoryText();
+        private Player player = new Player(10, 10);
+        private CommandHandler commandHandler = new CommandHandler();
 
-        public static void Start()
+        public void Start()
         {
             Map.MakeEmptyMap();
             Map.ExtractAreas();
 
-            currentArea = Map.mapAreas[10,10];
+            Area lastArea = Map.mapAreas[player.XCordinate,player.YCordinate];
 
-            Load(currentArea);
+            Load(lastArea);
         }
 
         //make areas a static list later? 
-        public static void Load(Area nextArea)
+        public void Load(Area curentArea)
         {
-            storyText.DisplayAreaText(nextArea);
+            storyText.DisplayAreaText(curentArea);
 
-            UpdateMap.Update();
+            MiniMap.Update(player);
 
             Actions.WritePossibleActions();
 
-            CommandHandler.EnterCommand();
+            commandHandler.EnterCommand(player);
+
+            Load(commandHandler.NextArea);
         }
 
     }
