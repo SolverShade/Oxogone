@@ -1,5 +1,9 @@
 ﻿using Colors.Net;
 using Colors.Net.StringColorExtensions;
+<<<<<<< HEAD
+=======
+using ConsoleUI.Areas;
+>>>>>>> parent of 0ca53f8 (Implemented File reading for areas. still need to re-add all the old areas in this new format.)
 using ConsoleUI.Map;
 using System;
 using System.Collections.Generic;

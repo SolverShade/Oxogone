@@ -13,7 +13,12 @@ namespace ConsoleUI.Map
 
         public static void Update(string direction)
         {
+<<<<<<< HEAD:ConsoleUI/Map/PlayerLocation.cs
             switch (direction)
+=======
+            string requstedArea = DefineMap.mapAreas[(Location.Item1 + horizontalMove), (Location.Item2 + verticalMove)];
+            if (bannedAreas.Contains(requstedArea))
+>>>>>>> parent of 0ca53f8 (Implemented File reading for areas. still need to re-add all the old areas in this new format.):ConsoleUI/Mapping/PlayerLocation.cs
             {
                 case "N":
                     location.Item2++;

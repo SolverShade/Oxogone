@@ -1,5 +1,5 @@
 ﻿using ConsoleUI.Areas;
-using ConsoleUI.Mapping;
+using ConsoleUI.Map;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +43,11 @@ namespace ConsoleUI.User
 
             Area nextArea = null;
 
+<<<<<<< HEAD
             foreach (Area area in Map.Areas)
+=======
+            foreach (Area area in LoadArea.areas)
+>>>>>>> parent of 0ca53f8 (Implemented File reading for areas. still need to re-add all the old areas in this new format.)
             {
                 if(area.Cordinate == (player.XCordinate,player.YCordinate))
                 {
