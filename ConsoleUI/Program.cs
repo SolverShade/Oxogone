@@ -12,8 +12,8 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            DeveloperMenu.WriteMenu();
-            DeveloperMenu.UserCommand();
+            MainMenu.WriteMenu();
+            MainMenu.Command();
 
             Console.ReadLine();
         }

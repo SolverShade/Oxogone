@@ -16,7 +16,6 @@ namespace ConsoleUI.LevelGui
             ClearLastAreaText();
 
             UILineEdit.setGuiLines(storyLine);
-            //instead of dividing the story into many strings tokenize here using spliting. 
             string[] textLines = area.Text.Split('>');
             foreach(string text in textLines)
             {

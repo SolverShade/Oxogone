@@ -6,50 +6,58 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleUI.User
+namespace ConsoleUI.Areas
 {
-    public class CommandHandler
+    public class MoveArea
     {
         const int userInputLine = 29;
         const int visableConsoleLines = 120;
-        public Area NextArea;
+        public Area NextArea = new Area((10,10), "", "");
+        private Area lastArea;
+        private (int,int) nextCordinate;
+        private List<string> bannedAreas = new List<string>() { "Wall", "LockedDoor" };
 
-        public void EnterCommand(Player player)
+        public void EnterCommand(Map map)
         {
             UILineEdit.setGuiLines(userInputLine, 0);
             string userCommand = Console.ReadLine();
 
             ClearUserInput();
 
+            lastArea = NextArea;
+
             switch (userCommand)
             {
                 case "n":
-                    player.MoveArea(0, 1);
+                    nextCordinate = (0, 1);
                     break;
                 case "s":
-                    player.MoveArea(0, -1);
+                    nextCordinate = (0, -1);
                     break;
                 case "e":
-                    player.MoveArea(1, 0);
+                    nextCordinate = (1, 0);
                     break;
                 case "w":
-                    player.MoveArea(-1, 0);
+                    nextCordinate = (-1, 0);
                     break;
                 default:
                     break;
             }
 
-            Area nextArea = null;
+            (int,int) requstedLocation = (NextArea.Cordinate.Item1 + nextCordinate.Item1, NextArea.Cordinate.Item2 + nextCordinate.Item2);
 
-            foreach (Area area in Map.mapAreas)
+            foreach (Area area in map.mapAreas)
             {
-                if(area.Cordinate == (player.XCordinate, player.YCordinate))
+                if (area.Cordinate == requstedLocation) 
                 {
-                    nextArea = area;
+                    NextArea = map.mapAreas[requstedLocation.Item1, requstedLocation.Item2];
                 }
             }
 
-            NextArea = nextArea;
+            if(bannedAreas.Contains(NextArea.Type))
+            {
+                NextArea = lastArea;
+            }
 
             Console.Clear(); // find a way to clear the console smoothly. clear on fullscreen or remove miniMap bugging on fullscreen. 
         }

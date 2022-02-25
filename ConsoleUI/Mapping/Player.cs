@@ -17,22 +17,5 @@ namespace ConsoleUI.Mapping
             XCordinate = xCord;
             YCordinate = yCord;
         }
-
-        private List<string> bannedAreas = new List<string>() { "Wall", "LockedDoor" };
-
-        public void MoveArea(int horizontalMove, int verticalMove)
-        {
-            string requstedArea = Map.mapAreas[(XCordinate + horizontalMove), (YCordinate + verticalMove)].Type;
-            if (bannedAreas.Contains(requstedArea))
-            {
-                Console.WriteLine("CANT GO THERE!!!");
-            }
-            else
-            {
-                XCordinate += horizontalMove;
-                YCordinate += verticalMove;
-            }
-        }
-       
     }
 }

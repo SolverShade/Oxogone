@@ -8,16 +8,28 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.Mapping
 {
-    public static class Map
+    public class Map
     {
-        public static Area[,] mapAreas = new Area[100, 100];
-        readonly static string AreaTypesPath = "C:/Users/HarambeCrompten/Documents/Important/College Documents/C#/csv/AreaInfo.csv";
+        public Area[,] mapAreas = new Area[100, 100];
+        readonly string AreaTypesPath = @".\Places\AreaInfo.csv";
 
-        public static void ExtractAreas()
+        public void ExtractAreas() // try-catch is used because Extract uses a file operation. the try catch is seperated so the method can be more readable.
+        {
+            try
+            {
+                Extract();
+            }
+            catch
+            {
+                throw new Exception("File not found or has incorrect format");
+            }
+        }
+
+        private void Extract()
         {
             List<Area> customAreas = new List<Area>();
 
-            foreach(string line in File.ReadLines(AreaTypesPath))
+            foreach (string line in File.ReadLines(AreaTypesPath))
             {
                 string[] tokens = line.Split(',');
 
@@ -27,7 +39,7 @@ namespace ConsoleUI.Mapping
             FillMap(customAreas);
         }
 
-        public static void FillMap(List<Area> areas)
+        public void FillMap(List<Area> areas)
         {
             MakeEmptyMap();
 
@@ -37,7 +49,7 @@ namespace ConsoleUI.Mapping
             }
         }
 
-        public static void MakeEmptyMap()
+        public void MakeEmptyMap()
         {
             for (int x = 0; x <= (mapAreas.GetLength(0) - 1); x++)
             {

@@ -18,7 +18,7 @@ namespace ConsoleUI.LevelGui
 
         static readonly int[] marks = new int[] { 3, 5, 7, 5, 3};
 
-        public static void Update(Player player)
+        public static void Update(Player player, Map map)
         {
             ClearMiniMap();
 
@@ -40,7 +40,7 @@ namespace ConsoleUI.LevelGui
                     int mapXCordinate = player.XCordinate + horizontalFromPlayer;
                     int mapYCordinate = player.YCordinate + verticalFromPlayer;
 
-                    string areaType = Map.mapAreas[mapXCordinate, mapYCordinate].Type;
+                    string areaType = map.mapAreas[mapXCordinate, mapYCordinate].Type;
 
                     if (horizontalFromPlayer == 0 && verticalFromPlayer == 0)
                     {

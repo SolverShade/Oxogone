@@ -13,14 +13,15 @@ namespace ConsoleUI.Areas
     {
         StoryText storyText = new StoryText();
         private Player player = new Player(10, 10);
-        private CommandHandler commandHandler = new CommandHandler();
+        private MoveArea commandHandler = new MoveArea();
+        private Map map = new Map();
 
         public void Start()
         {
-            Map.MakeEmptyMap();
-            Map.ExtractAreas();
+            map.MakeEmptyMap();
+            map.ExtractAreas();
 
-            Area lastArea = Map.mapAreas[player.XCordinate,player.YCordinate];
+            Area lastArea = map.mapAreas[player.XCordinate,player.YCordinate];
 
             Load(lastArea);
         }
@@ -30,11 +31,14 @@ namespace ConsoleUI.Areas
         {
             storyText.DisplayAreaText(curentArea);
 
-            MiniMap.Update(player);
+            MiniMap.Update(player, map);
 
             Actions.WritePossibleActions();
 
-            commandHandler.EnterCommand(player);
+            commandHandler.EnterCommand(map);
+
+            player.XCordinate = commandHandler.NextArea.Cordinate.Item1;
+            player.YCordinate = commandHandler.NextArea.Cordinate.Item2;
 
             Load(commandHandler.NextArea);
         }

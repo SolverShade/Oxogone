@@ -11,17 +11,18 @@ namespace ConsoleUI.Menu
     {
         public static void WriteMenu()
         {
+            Items.LoadItems(); //reorganize whole classes later
+
             Console.WriteLine("1. Display Rooms");
             Console.WriteLine("2. Display Weapons");
             Console.WriteLine("3. Display Potion");
             Console.WriteLine("4. Display Treasure");
             Console.WriteLine("5. Display Items");
             Console.WriteLine("6. Display Mobs");
-            Console.WriteLine("7. Exit");
-            Console.WriteLine("\n 8. Play Game \n");
+            Console.WriteLine("7. Return to Main Menu");
         }
 
-        public static void UserCommand()
+        public static void Command()
         {
             string command = Console.ReadLine();
 
@@ -30,32 +31,30 @@ namespace ConsoleUI.Menu
             switch (command)
             {
                 case "1":
-                    DisplayTextArray(PlannedItems.Rooms);
+                    DisplayTextList(Items.Rooms);
                     break;
                 case "2":
-                    DisplayTextArray(PlannedItems.Weapons);
+                    DisplayTextList(Items.Weapons);
                     break;
                 case "3":
-                    DisplayTextArray(PlannedItems.Potions);
+                    DisplayTextList(Items.Potions);
                     break;
                 case "4":
-                    DisplayTextArray(PlannedItems.Treasure);
+                    DisplayTextList(Items.Treasure);
                     break;
                 case "5":
-                    DisplayTextList(PlannedItems.Items);
+                    DisplayTextList(Items.UseableItems);
                     break;
                 case "6":
-                    DisplayTextList(PlannedItems.Mobs);
+                    DisplayTextList(Items.Mobs);
                     break;
                 case "7":
-                    Console.WriteLine("Press Any Key To Exit");
-                    break;
-                case "8":
-                    LoadArea loadArea = new LoadArea();
-                    loadArea.Start();
+                    Console.Clear();
+                    MainMenu.WriteMenu();
+                    MainMenu.Command();
                     break;
                 case "Room":
-                    DisplayTextArray(PlannedItems.Rooms);
+                    DisplayTextList(Items.Rooms);
                     break;
                 default:
                     break;
@@ -87,7 +86,7 @@ namespace ConsoleUI.Menu
             Console.ReadLine();
             Console.Clear();
             WriteMenu();
-            UserCommand();
+            Command();
         }
     }
 }
