@@ -53,6 +53,7 @@
     <Compile Include="Mapping\Map.cs" />
     <Compile Include="LevelGui\StoryText.cs" />
     <Compile Include="Mapping\Player.cs" />
+    <Compile Include="User\Actions.cs" />
     <Compile Include="Menu\CharachterSelect.cs" />
     <Compile Include="Menu\DeveloperMenu.cs" />
     <Compile Include="Menu\Items.cs" />
@@ -60,7 +61,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LevelGui\UILineEdit.cs" />
-    <Compile Include="User\Actions.cs" />
     <Compile Include="Areas\MoveArea.cs" />
   </ItemGroup>
   <ItemGroup>
