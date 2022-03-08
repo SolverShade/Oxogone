@@ -10,7 +10,7 @@ namespace ConsoleUI.Mapping
 {
     public class Map
     {
-        public Area[,] mapAreas = new Area[100, 100];
+        public Area[,] MapAreas = new Area[100, 100];
         readonly string AreaTypesPath = @".\Places\AreaInfo.csv";
 
         public void ExtractAreas() // try-catch is used because Extract uses a file operation. the try catch is seperated so the method can be more readable.
@@ -33,7 +33,7 @@ namespace ConsoleUI.Mapping
             {
                 string[] tokens = line.Split(',');
 
-                customAreas.Add(new Area((int.Parse(tokens[0]), int.Parse(tokens[1])), tokens[2], tokens[3]));
+                customAreas.Add(new Area(new Cordinate(int.Parse(tokens[0]), int.Parse(tokens[1])), tokens[2], tokens[3]));
             }
 
             FillMap(customAreas);
@@ -45,17 +45,17 @@ namespace ConsoleUI.Mapping
 
             foreach (Area area in areas)
             {
-                mapAreas[area.Cordinate.Item1, area.Cordinate.Item2] = area;
+                MapAreas[area.Cordinate.X, area.Cordinate.Y] = area;
             }
         }
 
         public void MakeEmptyMap()
         {
-            for (int x = 0; x <= (mapAreas.GetLength(0) - 1); x++)
+            for (int x = 0; x <= (MapAreas.GetLength(0) - 1); x++)
             {
-                for (int y = 0; y < (mapAreas.GetLength(1)); y++)
+                for (int y = 0; y < (MapAreas.GetLength(1)); y++)
                 {
-                    mapAreas[x, y] = new Area((x, y), "", "Wall" );
+                    MapAreas[x, y] = new Area((new Cordinate(x,y)), "", "Wall" );
                 }
             }
         }

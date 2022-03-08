@@ -9,7 +9,6 @@ namespace ConsoleUI
     public static class UILineEdit
     {
         const int consoleLines = 28;
-        const int storyLine = 1;
 
         private static string[] lineNums = new string[consoleLines];
         private static int currentLinePosition = consoleLines;
@@ -42,6 +41,12 @@ namespace ConsoleUI
             int linesToAdd = lineLocation - currentLinePosition;
             Console.SetCursorPosition(cursorPlacement, (currentLinePosition - 1) + linesToAdd);
             currentLinePosition = currentLinePosition + linesToAdd;
+        }
+
+        public static void ClearLine(int lineLocation)
+        {
+            UILineEdit.setGuiLines(lineLocation, 0);
+            Console.WriteLine(new string(' ', Console.WindowWidth));
         }
     }
 }

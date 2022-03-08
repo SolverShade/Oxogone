@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleUI.Mapping;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,11 @@ namespace ConsoleUI.Areas
 {
     public class Area
     {
-        public (int,int) Cordinate { get; set; }
+        public Cordinate Cordinate { get; set; }
         public string Text { get; set; }
         public string Type { get; set; }
 
-        public Area((int, int) _cordinate, string _text, string _type) 
+        public Area(Cordinate _cordinate, string _text, string _type) 
         {
             Cordinate = _cordinate;
             Text = _text;

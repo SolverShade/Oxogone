@@ -6,22 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleUI.Mapping;
+using ConsoleUI.Commands;
 
 namespace ConsoleUI.Areas
 {
     public class LoadArea
     {
         StoryText storyText = new StoryText();
-        private Player player = new Player(10, 10);
-        private MoveArea commandHandler = new MoveArea();
+        private Player player = new Player(new Cordinate(10,10));
         private Map map = new Map();
+        private CommandHandler commandHandler;
 
         public void Start()
         {
+            commandHandler = new CommandHandler(player, map);
+
             map.MakeEmptyMap();
             map.ExtractAreas();
 
-            Area lastArea = map.mapAreas[player.XCordinate,player.YCordinate];
+            Area lastArea = map.MapAreas[player.Cordinate.X, player.Cordinate.Y];
 
             Load(lastArea);
         }
@@ -35,12 +38,10 @@ namespace ConsoleUI.Areas
 
             Actions.WritePossibleActions();
 
-            commandHandler.EnterCommand(map);
+            commandHandler.PrepareHandles();
+            commandHandler.HandleCommand();        
 
-            player.XCordinate = commandHandler.NextArea.Cordinate.Item1;
-            player.YCordinate = commandHandler.NextArea.Cordinate.Item2;
-
-            Load(commandHandler.NextArea);
+            Load(map.MapAreas[player.Cordinate.X, player.Cordinate.Y]);
         }
 
     }

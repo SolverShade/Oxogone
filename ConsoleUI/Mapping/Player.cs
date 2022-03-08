@@ -9,13 +9,13 @@ namespace ConsoleUI.Mapping
 {
     public class Player
     {
-        public int XCordinate { get; set; }
-        public int YCordinate { get; set; }
+        public Cordinate Cordinate { get; set; }
+        public int Oxygen = 100;
+        public int AttackPoints = 20; // make class Weapon that holds a name and Attackpoints value 
 
-        public Player(int xCord, int yCord)
+        public Player(Cordinate cordinate)
         {
-            XCordinate = xCord;
-            YCordinate = yCord;
+            Cordinate = cordinate;
         }
     }
 }

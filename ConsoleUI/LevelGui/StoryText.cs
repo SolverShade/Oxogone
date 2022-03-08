@@ -9,13 +9,13 @@ namespace ConsoleUI.LevelGui
 {
     public class StoryText
     {
-        const int storyLine = 1;
-        const int maxStoryLines = 6;
+        const int STORYLINE = 1;
+        const int MAXSTORYLINES = 6;
         public void DisplayAreaText(Area area)
         {
             ClearLastAreaText();
 
-            UILineEdit.setGuiLines(storyLine);
+            UILineEdit.setGuiLines(STORYLINE);
             string[] textLines = area.Text.Split('>');
             foreach(string text in textLines)
             {
@@ -25,9 +25,9 @@ namespace ConsoleUI.LevelGui
 
         private void ClearLastAreaText()
         {            
-            for (int lineIndex = 0; lineIndex < maxStoryLines; lineIndex++)
+            for (int lineIndex = 0; lineIndex < MAXSTORYLINES; lineIndex++)
             {
-                UILineEdit.setGuiLines(storyLine + lineIndex);
+                UILineEdit.setGuiLines(STORYLINE + lineIndex);
                 Console.WriteLine(new string(' ', Console.WindowWidth));
             }
         }

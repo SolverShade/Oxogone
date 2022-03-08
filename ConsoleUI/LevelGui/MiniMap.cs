@@ -12,8 +12,8 @@ namespace ConsoleUI.LevelGui
 {
     public static class MiniMap
     {
-        const int MINIMAPLINE = 12;
-        const int MINIMAPSPACE = 8;
+        const int MINIMAPLINE = 11;
+        const int MINIMAPSPACE = 6;
         const int MAXMINIMAPLINES = 8;
 
         static readonly int[] marks = new int[] { 3, 5, 7, 5, 3};
@@ -21,7 +21,7 @@ namespace ConsoleUI.LevelGui
         public static void Update(Player player, Map map)
         {
             ClearMiniMap();
-
+            DisplayPlayerCordinate(player);
             LoadIdenitifers();
 
             for(int lineIndex = 0; lineIndex < marks.Length; lineIndex++)
@@ -37,10 +37,10 @@ namespace ConsoleUI.LevelGui
                     int horizontalFromPlayer = (halfOfLineMarks - marks[lineIndex]) + markIndex;
                     int verticalFromPlayer = (marks.Length - halfOfLines) - lineIndex;
 
-                    int mapXCordinate = player.XCordinate + horizontalFromPlayer;
-                    int mapYCordinate = player.YCordinate + verticalFromPlayer;
+                    int mapXCordinate = player.Cordinate.X + horizontalFromPlayer;
+                    int mapYCordinate = player.Cordinate.Y + verticalFromPlayer;
 
-                    string areaType = map.mapAreas[mapXCordinate, mapYCordinate].Type;
+                    string areaType = map.MapAreas[mapXCordinate, mapYCordinate].Type;
 
                     if (horizontalFromPlayer == 0 && verticalFromPlayer == 0)
                     {
@@ -82,8 +82,6 @@ namespace ConsoleUI.LevelGui
         //cleanup... use  constants? 
         private static void LoadIdenitifers()
         {
-            UILineEdit.setGuiLines((MINIMAPLINE - 4), MINIMAPSPACE - 2);
-            //Console.WriteLine(Map.mapAreas[]); reImplement later 
             UILineEdit.setGuiLines((MINIMAPLINE - 2), MINIMAPSPACE);
             ColoredConsole.Write("N".Red());
             UILineEdit.setGuiLines((MINIMAPLINE + marks.Length + 1), MINIMAPSPACE);
@@ -92,6 +90,12 @@ namespace ConsoleUI.LevelGui
             ColoredConsole.Write("W".Yellow());
             UILineEdit.setGuiLines((MINIMAPLINE + 2), MINIMAPSPACE + 5);
             ColoredConsole.Write("E".Green());
+        }
+
+        private static void DisplayPlayerCordinate(Player player)
+        {
+            UILineEdit.setGuiLines((MINIMAPLINE - 4), MINIMAPSPACE - 3);
+            Console.Write("(" + player.Cordinate.X.ToString() + "," + player.Cordinate.Y.ToString() + ")");
         }
 
         private static void ClearMiniMap()
