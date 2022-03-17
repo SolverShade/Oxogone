@@ -14,23 +14,22 @@ namespace ConsoleUI.Areas
     {
         StoryText storyText = new StoryText();
         private Player player = new Player(new Cordinate(10,10));
-        private Map map = new Map();
+        private Map map = new Map(100,100);
         private CommandHandler commandHandler;
 
-        public void Start()
+        public void GenerateWorld()
         {
             commandHandler = new CommandHandler(player, map);
 
-            map.MakeEmptyMap();
-            map.ExtractAreas();
+            map.Areas = map.MakeEmptyMap();
+            map.Areas = map.AddCustomAreas(map.Areas); 
 
-            Area lastArea = map.MapAreas[player.Cordinate.X, player.Cordinate.Y];
+            Area lastArea = map.Areas[player.Cordinate.X, player.Cordinate.Y];
 
-            Load(lastArea);
+            UpdateWorld(lastArea);
         }
 
-        //make areas a static list later? 
-        public void Load(Area curentArea)
+        public void UpdateWorld(Area curentArea)
         {
             storyText.DisplayAreaText(curentArea);
 
@@ -41,7 +40,7 @@ namespace ConsoleUI.Areas
             commandHandler.PrepareHandles();
             commandHandler.HandleCommand();        
 
-            Load(map.MapAreas[player.Cordinate.X, player.Cordinate.Y]);
+            UpdateWorld(map.Areas[player.Cordinate.X, player.Cordinate.Y]);
         }
 
     }

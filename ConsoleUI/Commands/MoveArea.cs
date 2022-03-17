@@ -45,11 +45,7 @@ namespace ConsoleUI.Areas
                     break;
             }
 
-            if(bannedAreas.Contains(Map.MapAreas[CurrentCordinate.X, CurrentCordinate.Y].Type))
-            {
-
-            }
-            else
+            if(!bannedAreas.Contains(Map.Areas[CurrentCordinate.X, CurrentCordinate.Y].Type))
             {
                 Player.Cordinate = CurrentCordinate;
                 movedArea = true;

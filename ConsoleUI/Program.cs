@@ -12,8 +12,11 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            MainMenu.WriteMenu();
-            MainMenu.Command();
+            LoadArea loadArea = new LoadArea();
+            loadArea.GenerateWorld();
+
+            //MainMenu.WriteMenu();
+            //MainMenu.Command();
 
             Console.ReadLine();
         }

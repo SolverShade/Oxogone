@@ -71,7 +71,7 @@ namespace ConsoleUI.Menu
             {
                 Console.Clear();
                 LoadArea loadArea = new LoadArea();
-                loadArea.Start();
+                loadArea.GenerateWorld();
             }
             else
             {
