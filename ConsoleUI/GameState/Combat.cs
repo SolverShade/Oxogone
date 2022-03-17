@@ -1,14 +1,16 @@
-﻿using Colors.Net;
+﻿#region usingStatements 
+using Colors.Net;
 using Colors.Net.StringColorExtensions;
-using ConsoleUI.Mapping;
 using ConsoleUI.Mobs;
+using ConsoleUI.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+#endregion
 
-namespace ConsoleUI.Commands
+namespace ConsoleUI.GameState
 {
     public class Combat
     {

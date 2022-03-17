@@ -1,0 +1,6 @@
+C:\Users\HarambeCrompten\source\repos\FixedOxo\LogicLibrary\obj\Debug\LogicLibrary.csproj.AssemblyReference.cache
+C:\Users\HarambeCrompten\source\repos\FixedOxo\LogicLibrary\obj\Debug\LogicLibrary.csproj.CoreCompileInputs.cache
+C:\Users\HarambeCrompten\source\repos\FixedOxo\LogicLibrary\bin\Debug\LogicLibrary.dll
+C:\Users\HarambeCrompten\source\repos\FixedOxo\LogicLibrary\bin\Debug\LogicLibrary.pdb
+C:\Users\HarambeCrompten\source\repos\FixedOxo\LogicLibrary\obj\Debug\LogicLibrary.dll
+C:\Users\HarambeCrompten\source\repos\FixedOxo\LogicLibrary\obj\Debug\LogicLibrary.pdb

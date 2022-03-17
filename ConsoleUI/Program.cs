@@ -1,4 +1,8 @@
-﻿using ConsoleUI.Areas;
+﻿#region usingStatements 
+
+#endregion
+
+using ConsoleUI.GameState;
 using ConsoleUI.Menu;
 using System;
 using System.Collections.Generic;

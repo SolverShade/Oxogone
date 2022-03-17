@@ -1,12 +1,14 @@
-﻿using ConsoleUI.Areas;
-using ConsoleUI.Mapping;
+﻿#region usingStatements 
+using ConsoleUI.User;
+using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+#endregion
 
-namespace ConsoleUI.Commands
+namespace ConsoleUI.GameState
 {
     public class CommandHandler
     {
@@ -58,7 +60,7 @@ namespace ConsoleUI.Commands
                 }
                 else if (new List<char> { 'q' }.Contains(commandPrefix))
                 {
-
+                    Environment.Exit(0);
                 }
                 else
                 {

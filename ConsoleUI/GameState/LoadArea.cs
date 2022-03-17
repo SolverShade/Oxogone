@@ -1,14 +1,15 @@
-﻿using ConsoleUI.LevelGui;
+﻿#region usingStatements 
+using ConsoleUI.LevelGui;
 using ConsoleUI.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleUI.Mapping;
-using ConsoleUI.Commands;
+using LogicLibrary.Mapping;
+#endregion
 
-namespace ConsoleUI.Areas
+namespace ConsoleUI.GameState
 {
     public class LoadArea
     {

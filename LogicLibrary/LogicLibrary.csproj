@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9DE7E37C-A694-48E3-9220-AA2575D3A593}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleUI</RootNamespace>
-    <AssemblyName>ConsoleUI</AssemblyName>
+    <ProjectGuid>{FFE8241E-4AFB-47D3-9FD9-B8D4573CF9DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogicLibrary</RootNamespace>
+    <AssemblyName>LogicLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Colors.Net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Colors.Net.1.1.0\lib\netstandard2.0\Colors.Net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,34 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameState\LoadArea.cs" />
-    <Compile Include="GameState\Combat.cs" />
-    <Compile Include="GameState\CommandHandler.cs" />
-    <Compile Include="LevelGui\MiniMap.cs" />
-    <Compile Include="LevelGui\StoryText.cs" />
-    <Compile Include="User\Player.cs" />
-    <Compile Include="GameState\Actions.cs" />
-    <Compile Include="Menu\CharachterSelect.cs" />
-    <Compile Include="Menu\DeveloperMenu.cs" />
-    <Compile Include="Menu\Items.cs" />
-    <Compile Include="Menu\MainMenu.cs" />
-    <Compile Include="Mobs\Enemy.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Mapping\Area.cs" />
+    <Compile Include="Mapping\Cordinate.cs" />
+    <Compile Include="Mapping\Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LevelGui\UILineEdit.cs" />
-    <Compile Include="GameState\MoveArea.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LogicLibrary\LogicLibrary.csproj">
-      <Project>{ffe8241e-4afb-47d3-9fd9-b8d4573cf9dc}</Project>
-      <Name>LogicLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

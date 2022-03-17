@@ -1,11 +1,14 @@
-﻿using ConsoleUI.LevelGui;
+﻿#region usingStatements 
+using ConsoleUI.LevelGui;
+using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+#endregion
 
-namespace ConsoleUI.Mapping
+namespace ConsoleUI.User
 {
     public class Player
     {

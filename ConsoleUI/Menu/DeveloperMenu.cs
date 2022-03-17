@@ -1,9 +1,10 @@
-﻿using ConsoleUI.Areas;
+﻿#region usingStatements
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+#endregion
 
 namespace ConsoleUI.Menu
 {
@@ -11,7 +12,7 @@ namespace ConsoleUI.Menu
     {
         public static void WriteMenu()
         {
-            Items.LoadItems(); //reorganize whole classes later
+            Items.LoadItems(); 
 
             Console.WriteLine("1. Display Rooms");
             Console.WriteLine("2. Display Weapons");

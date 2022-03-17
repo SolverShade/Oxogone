@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLibrary", "LogicLibrary\LogicLibrary.csproj", "{FFE8241E-4AFB-47D3-9FD9-B8D4573CF9DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{9DE7E37C-A694-48E3-9220-AA2575D3A593}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DE7E37C-A694-48E3-9220-AA2575D3A593}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DE7E37C-A694-48E3-9220-AA2575D3A593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE8241E-4AFB-47D3-9FD9-B8D4573CF9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE8241E-4AFB-47D3-9FD9-B8D4573CF9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE8241E-4AFB-47D3-9FD9-B8D4573CF9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE8241E-4AFB-47D3-9FD9-B8D4573CF9DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

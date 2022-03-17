@@ -1,12 +1,14 @@
-﻿using Colors.Net;
+﻿#region usingStatements
+using Colors.Net;
 using Colors.Net.StringColorExtensions;
-using ConsoleUI.Areas;
-using ConsoleUI.Mapping;
+using ConsoleUI.User;
+using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+#endregion
 
 namespace ConsoleUI.LevelGui
 {

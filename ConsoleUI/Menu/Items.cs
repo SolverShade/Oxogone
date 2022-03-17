@@ -1,4 +1,5 @@
-﻿using Colors.Net;
+﻿#region usingStatements 
+using Colors.Net;
 using Colors.Net.StringColorExtensions;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+#endregion
 
 namespace ConsoleUI.Menu
 {
