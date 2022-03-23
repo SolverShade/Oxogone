@@ -38,6 +38,8 @@ namespace ConsoleUI.GameState
 
             Actions.WritePossibleActions();
 
+            //TODO: LoadEnemys and LoadItems 
+
             commandHandler.PrepareHandles();
             commandHandler.HandleCommand();        
 

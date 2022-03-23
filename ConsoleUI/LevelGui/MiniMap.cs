@@ -14,7 +14,7 @@ namespace ConsoleUI.LevelGui
 {
     public static class MiniMap
     {
-        const int MINIMAPLINE = 11;
+        const int MINIMAPLINE = 9;
         const int MINIMAPSPACE = 6;
         const int MAXMINIMAPLINES = 8;
 
