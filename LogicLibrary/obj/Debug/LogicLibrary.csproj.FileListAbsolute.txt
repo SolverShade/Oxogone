@@ -4,3 +4,9 @@ C:\Users\HarambeCrompten\source\repos\FixedOxo\LogicLibrary\bin\Debug\LogicLibra
 C:\Users\HarambeCrompten\source\repos\FixedOxo\LogicLibrary\bin\Debug\LogicLibrary.pdb
 C:\Users\HarambeCrompten\source\repos\FixedOxo\LogicLibrary\obj\Debug\LogicLibrary.dll
 C:\Users\HarambeCrompten\source\repos\FixedOxo\LogicLibrary\obj\Debug\LogicLibrary.pdb
+C:\Users\mccuer7959\Source\Repos\SolverShade\Oxogone\LogicLibrary\bin\Debug\LogicLibrary.dll
+C:\Users\mccuer7959\Source\Repos\SolverShade\Oxogone\LogicLibrary\bin\Debug\LogicLibrary.pdb
+C:\Users\mccuer7959\Source\Repos\SolverShade\Oxogone\LogicLibrary\obj\Debug\LogicLibrary.csproj.AssemblyReference.cache
+C:\Users\mccuer7959\Source\Repos\SolverShade\Oxogone\LogicLibrary\obj\Debug\LogicLibrary.csproj.CoreCompileInputs.cache
+C:\Users\mccuer7959\Source\Repos\SolverShade\Oxogone\LogicLibrary\obj\Debug\LogicLibrary.dll
+C:\Users\mccuer7959\Source\Repos\SolverShade\Oxogone\LogicLibrary\obj\Debug\LogicLibrary.pdb

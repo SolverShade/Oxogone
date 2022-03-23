@@ -18,7 +18,7 @@ namespace ConsoleUI.LevelGui
             ClearLastAreaText();
 
             UILineEdit.setGuiLines(STORYLINE);
-            string[] textLines = area.Text.Split('>');
+            string[] textLines = area.Description.Split('>');
             foreach(string text in textLines)
             {
                 Console.WriteLine(text);

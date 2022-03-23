@@ -42,7 +42,7 @@ namespace ConsoleUI.LevelGui
                     int mapXCordinate = player.Cordinate.X + horizontalFromPlayer;
                     int mapYCordinate = player.Cordinate.Y + verticalFromPlayer;
 
-                    string areaType = map.Areas[mapXCordinate, mapYCordinate].Type;
+                    string areaType = map.Areas[mapXCordinate, mapYCordinate].AreaName;
 
                     if (horizontalFromPlayer == 0 && verticalFromPlayer == 0)
                     {

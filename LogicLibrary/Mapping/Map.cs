@@ -27,7 +27,7 @@ namespace LogicLibrary.Mapping
             }
             catch
             {
-                throw new Exception("File not found or has incorrect format");
+                throw new Exception("File not found or has incorrect format or file is currently open and should  be closed");
             }
         }
 
@@ -38,7 +38,7 @@ namespace LogicLibrary.Mapping
             foreach (string line in File.ReadLines(AreaTypesPath))
             {
                 string[] tokens = line.Split(',');
-                customAreas.Add(new Area(new Cordinate(int.Parse(tokens[0]), int.Parse(tokens[1])), tokens[2], tokens[3]));
+                customAreas.Add(new Area(new Cordinate(int.Parse(tokens[0]), int.Parse(tokens[1])), tokens[2], tokens[3], tokens[4]));
             }
 
             foreach (Area area in customAreas)
@@ -57,7 +57,7 @@ namespace LogicLibrary.Mapping
             {
                 for (int y = 0; y < (Areas.GetLength(1)); y++)
                 {
-                  areas[x,y]   = new Area((new Cordinate(x,y)), "", "Wall" );
+                  areas[x,y]   = new Area((new Cordinate(x,y)), "", "Wall", "" );
                 }
             }
             return areas; 

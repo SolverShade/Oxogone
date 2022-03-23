@@ -47,7 +47,7 @@ namespace ConsoleUI.GameState
                     break;
             }
 
-            if(!bannedAreas.Contains(Map.Areas[CurrentCordinate.X, CurrentCordinate.Y].Type))
+            if(!bannedAreas.Contains(Map.Areas[CurrentCordinate.X, CurrentCordinate.Y].AreaName))
             {
                 Player.Cordinate = CurrentCordinate;
                 movedArea = true;
