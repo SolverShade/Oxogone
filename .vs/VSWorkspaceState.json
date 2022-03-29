@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ConsoleUI"
   ],
-  "SelectedNode": "\\Oxogone.sln",
+  "SelectedNode": "\\ConsoleUI\\ConsoleUI.csproj",
   "PreviewInSolutionExplorer": false
 }
