@@ -1,4 +1,6 @@
 ﻿#region usingStatements 
+using LogicLibrary.Items;
+using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.Mobs
 {
-    public class Enemy
-    {
+    public class Enemy : Spawnable
+    {       
         public int Health { get; set; } 
         public int Defense { get; set; }
         public int Attack { get; set; }
@@ -19,6 +21,14 @@ namespace ConsoleUI.Mobs
             Health = health;
             Defense = defense;
             Attack = attack;
+        }
+
+        public void IfDeadRemoveFromMap(Map map, Cordinate cordinate)
+        {
+            if(Health < 0)
+            {
+                
+            }
         }
     }
 }

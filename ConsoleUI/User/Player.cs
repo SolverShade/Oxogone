@@ -1,5 +1,6 @@
 ﻿#region usingStatements 
 using ConsoleUI.LevelGui;
+using LogicLibrary.Items;
 using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;

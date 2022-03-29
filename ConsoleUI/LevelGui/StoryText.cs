@@ -12,13 +12,13 @@ namespace ConsoleUI.LevelGui
     public class StoryText
     {
         const int STORYLINE = 1;
-        const int MAXSTORYLINES = 6;
+        const int MAXSTORYLINES = 3;
         public void DisplayAreaText(Area area)
         {
             ClearLastAreaText();
 
             UILineEdit.setGuiLines(STORYLINE);
-            string[] textLines = area.Text.Split('>');
+            string[] textLines = area.Description.Split('>');
             foreach(string text in textLines)
             {
                 Console.WriteLine(text);

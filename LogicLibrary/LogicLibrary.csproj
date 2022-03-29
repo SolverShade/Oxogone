@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Items\Spawnable.cs" />
     <Compile Include="Mapping\Area.cs" />
     <Compile Include="Mapping\Cordinate.cs" />
     <Compile Include="Mapping\Map.cs" />

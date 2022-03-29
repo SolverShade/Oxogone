@@ -16,7 +16,7 @@ namespace LogicLibrary.Mapping
 
         public Map(int rows, int columns)
         {
-            Areas = new Area[rows,columns]; 
+            Areas = new Area[rows, columns];
         }
 
         public Area[,] AddCustomAreas(Area[,] currentAreas) // try-catch is used because Extract uses a file operation. the try catch is seperated so the method can be more readable.
@@ -27,7 +27,7 @@ namespace LogicLibrary.Mapping
             }
             catch
             {
-                throw new Exception("File not found or has incorrect format");
+                throw new Exception("File not found or has incorrect format or file is currently open and should be closed");
             }
         }
 
@@ -35,10 +35,12 @@ namespace LogicLibrary.Mapping
         {
             List<Area> customAreas = new List<Area>();
 
-            foreach (string line in File.ReadLines(AreaTypesPath))
+            for (int areaIndex = 0; areaIndex < File.ReadLines(AreaTypesPath).Count(); areaIndex++)
             {
-                string[] tokens = line.Split(',');
-                customAreas.Add(new Area(new Cordinate(int.Parse(tokens[0]), int.Parse(tokens[1])), tokens[2], tokens[3]));
+                string line = File.ReadLines(AreaTypesPath).ElementAt(areaIndex);
+                string[] AreaIdentifers = line.Split(',');
+                List<string> AreaContent = AreaIdentifers[4].Split('-').ToList<string>();
+                customAreas.Add(new Area(areaIndex, new Cordinate(int.Parse(AreaIdentifers[0]), int.Parse(AreaIdentifers[1])), AreaIdentifers[2], AreaIdentifers[3], AreaContent));
             }
 
             foreach (Area area in customAreas)
@@ -46,7 +48,7 @@ namespace LogicLibrary.Mapping
                 currentMap[area.Cordinate.X, area.Cordinate.Y] = area;
             }
 
-            return currentMap; 
+            return currentMap;
         }
 
         public Area[,] MakeEmptyMap()
@@ -57,10 +59,10 @@ namespace LogicLibrary.Mapping
             {
                 for (int y = 0; y < (Areas.GetLength(1)); y++)
                 {
-                  areas[x,y]   = new Area((new Cordinate(x,y)), "", "Wall" );
+                    areas[x, y] = new Area(-1, (new Cordinate(x, y)), "", "Wall", new List<string> { "" });
                 }
             }
-            return areas; 
+            return areas;
         }
 
     }

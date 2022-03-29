@@ -14,7 +14,7 @@ namespace ConsoleUI.LevelGui
 {
     public static class MiniMap
     {
-        const int MINIMAPLINE = 11;
+        const int MINIMAPLINE = 9;
         const int MINIMAPSPACE = 6;
         const int MAXMINIMAPLINES = 8;
 
@@ -42,7 +42,7 @@ namespace ConsoleUI.LevelGui
                     int mapXCordinate = player.Cordinate.X + horizontalFromPlayer;
                     int mapYCordinate = player.Cordinate.Y + verticalFromPlayer;
 
-                    string areaType = map.Areas[mapXCordinate, mapYCordinate].Type;
+                    string areaType = map.Areas[mapXCordinate, mapYCordinate].Name;
 
                     if (horizontalFromPlayer == 0 && verticalFromPlayer == 0)
                     {
