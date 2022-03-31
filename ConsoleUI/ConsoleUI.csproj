@@ -58,7 +58,6 @@
     <Compile Include="Menu\DeveloperMenu.cs" />
     <Compile Include="Menu\Items.cs" />
     <Compile Include="Menu\MainMenu.cs" />
-    <Compile Include="Mobs\Enemy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LevelGui\UILineEdit.cs" />

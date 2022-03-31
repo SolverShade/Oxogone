@@ -1,4 +1,5 @@
 ﻿#region usingStatements 
+using LogicLibrary.Mobs;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -38,9 +39,10 @@ namespace LogicLibrary.Mapping
             for (int areaIndex = 0; areaIndex < File.ReadLines(AreaTypesPath).Count(); areaIndex++)
             {
                 string line = File.ReadLines(AreaTypesPath).ElementAt(areaIndex);
-                string[] AreaIdentifers = line.Split(',');
-                List<string> AreaContent = AreaIdentifers[4].Split('-').ToList<string>();
-                customAreas.Add(new Area(areaIndex, new Cordinate(int.Parse(AreaIdentifers[0]), int.Parse(AreaIdentifers[1])), AreaIdentifers[2], AreaIdentifers[3], AreaContent));
+                string[] AreaTokens = line.Split(',');
+                List<string> UsableItems = AreaTokens[5].Split('-').ToList<string>();
+                Mob mob = MobBuilder.GenerateMob(AreaTokens[4]);
+                customAreas.Add(new Area(areaIndex, new Cordinate(int.Parse(AreaTokens[0]), int.Parse(AreaTokens[1])), AreaTokens[2], AreaTokens[3], mob, UsableItems));
             }
 
             foreach (Area area in customAreas)
@@ -59,7 +61,7 @@ namespace LogicLibrary.Mapping
             {
                 for (int y = 0; y < (Areas.GetLength(1)); y++)
                 {
-                    areas[x, y] = new Area(-1, (new Cordinate(x, y)), "", "Wall", new List<string> { "" });
+                    areas[x, y] = new Area(-1, (new Cordinate(x, y)), "", "Wall", null, new List<string> { "" });
                 }
             }
             return areas;

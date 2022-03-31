@@ -45,6 +45,8 @@
     <Compile Include="Mapping\Area.cs" />
     <Compile Include="Mapping\Cordinate.cs" />
     <Compile Include="Mapping\Map.cs" />
+    <Compile Include="Mobs\Mob.cs" />
+    <Compile Include="Mobs\MobBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

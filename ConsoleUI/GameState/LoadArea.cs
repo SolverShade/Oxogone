@@ -34,11 +34,11 @@ namespace ConsoleUI.GameState
         {
             storyText.DisplayAreaText(curentArea);
 
+            //Clear Minimap and display combat UI if an enemy is present TODO:
+
             MiniMap.Update(player, map);
 
             Actions.WritePossibleActions();
-
-            //TODO: LoadEnemys and LoadItems 
 
             commandHandler.PrepareHandles();
             commandHandler.HandleCommand();        

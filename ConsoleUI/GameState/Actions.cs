@@ -15,9 +15,9 @@ namespace ConsoleUI.GameState
         {
             UILineEdit.setGuiLines(ACTIONLINE, 0);
             Console.WriteLine("-Possible Actions-");
-            Console.WriteLine("n(North), e(East), s(South), w(West)");
-            Console.WriteLine("a(Attack)");
-            Console.WriteLine("q(Quit)");
+            Console.WriteLine("MOVEMENT: n(North), e(East), s(South), w(West) ");
+            Console.WriteLine("COMBAT: a(Attack)");
+            Console.WriteLine("MENU: q(Quit)");
         }
     }
 }
