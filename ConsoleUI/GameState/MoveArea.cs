@@ -51,7 +51,6 @@ namespace ConsoleUI.GameState
             {
                 Player.Cordinate = CurrentCordinate;
                 movedArea = true;
-                Console.Clear(); // find a way to clear the console smoothly. clear on fullscreen or remove miniMap bugging on fullscreen. 
             }
         }
 

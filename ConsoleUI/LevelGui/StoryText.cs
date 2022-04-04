@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.LevelGui
 {
-    public class StoryText
+    public static class StoryText
     {
         const int STORYLINE = 1;
         const int MAXSTORYLINES = 3;
-        public void DisplayAreaText(Area area)
+        public static void DisplayAreaText(Area area)
         {
-            ClearLastAreaText();
-
+            UILineEdit.ClearSpecifiedLines(STORYLINE, MAXSTORYLINES);
             UILineEdit.setGuiLines(STORYLINE);
+
             string[] textLines = area.Description.Split('>');
             foreach(string text in textLines)
             {
@@ -25,15 +25,12 @@ namespace ConsoleUI.LevelGui
             }
         }
 
-        private void ClearLastAreaText()
-        {            
-            for (int lineIndex = 0; lineIndex < MAXSTORYLINES; lineIndex++)
-            {
-                UILineEdit.setGuiLines(STORYLINE + lineIndex);
-                Console.WriteLine(new string(' ', Console.WindowWidth));
-            }
+        public static void DisplayCombatText()
+        {
+            UILineEdit.ClearSpecifiedLines(STORYLINE, MAXSTORYLINES);
+            UILineEdit.setGuiLines(STORYLINE);
+
+            Console.WriteLine("You are currently in combat and cannot escape until you or the enemy are no longer standing"); 
         }
-
-
     }
 }

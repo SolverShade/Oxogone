@@ -27,7 +27,7 @@ namespace ConsoleUI.GameState
             Random hitPointsRange = new Random();
             int attackValue = hitPointsRange.Next(0, Player.AttackPoints);
 
-            UILineEdit.ClearLine(COMBATLINE);
+            UILineEdit.ClearSpecifiedLines(COMBATLINE, 1);
             UILineEdit.setGuiLines(COMBATLINE);
             ColoredConsole.Write("Player did " + $"{ attackValue.ToString()}".Green() + " damage to nothing");
         }

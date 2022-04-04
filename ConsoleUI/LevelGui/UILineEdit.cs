@@ -15,17 +15,17 @@ namespace ConsoleUI
         private static string[] lineNums = new string[consoleLines];
         private static int currentLinePosition = consoleLines;
 
-        public static void  setGuiLines(int lineLocation, int cursorPlacement = 0)
+        public static void setGuiLines(int lineLocation, int cursorPlacement = 0)
         {
-            if(currentLinePosition < lineLocation)
+            if (currentLinePosition < lineLocation)
             {
-                GetUpperLine(lineLocation,  cursorPlacement);
+                GetUpperLine(lineLocation, cursorPlacement);
             }
-            else if(currentLinePosition > lineLocation)
+            else if (currentLinePosition > lineLocation)
             {
                 GetLowerLine(lineLocation, cursorPlacement);
             }
-            else if(currentLinePosition == lineLocation)
+            else if (currentLinePosition == lineLocation)
             {
                 Console.SetCursorPosition(cursorPlacement, (currentLinePosition - 1));
             }
@@ -38,17 +38,20 @@ namespace ConsoleUI
             currentLinePosition = currentLinePosition - linesToRemove;
         }
 
-        private static void GetLowerLine(int lineLocation , int cursorPlacement)
+        private static void GetLowerLine(int lineLocation, int cursorPlacement)
         {
             int linesToAdd = lineLocation - currentLinePosition;
             Console.SetCursorPosition(cursorPlacement, (currentLinePosition - 1) + linesToAdd);
             currentLinePosition = currentLinePosition + linesToAdd;
         }
 
-        public static void ClearLine(int lineLocation)
+        public static void ClearSpecifiedLines(int startingLine, int linesToClear)
         {
-            UILineEdit.setGuiLines(lineLocation, 0);
-            Console.WriteLine(new string(' ', Console.WindowWidth));
+            for (int lineIndex = 0; lineIndex < linesToClear; lineIndex++)
+            {
+                UILineEdit.setGuiLines(startingLine + lineIndex);
+                Console.WriteLine(new string(' ', Console.WindowWidth));
+            }
         }
     }
 }

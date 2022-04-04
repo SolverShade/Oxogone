@@ -22,13 +22,12 @@ namespace ConsoleUI.LevelGui
 
         public static void Update(Player player, Map map)
         {
-            ClearMiniMap();
+            UILineEdit.ClearSpecifiedLines(MINIMAPLINE, MAXMINIMAPLINES);
             DisplayPlayerCordinate(player);
             LoadIdenitifers();
 
-            for(int lineIndex = 0; lineIndex < marks.Length; lineIndex++)
-            {
-                //Gets the correct cordinates where the next next should be written. the horizontal spacing is the median of each marks value.
+            for(int lineIndex = 0; lineIndex < marks.Length; lineIndex++)   //Gets the correct cordinates where the next line should be written. the horizontal spacing is the median of each marks value.
+            {              
                 UILineEdit.setGuiLines((MINIMAPLINE + lineIndex), (MINIMAPSPACE - marks[lineIndex]/2));
 
                 for (int markIndex = 0; markIndex < marks[lineIndex]; markIndex++)
@@ -99,15 +98,5 @@ namespace ConsoleUI.LevelGui
             UILineEdit.setGuiLines((MINIMAPLINE - 4), MINIMAPSPACE - 3);
             Console.Write("(" + player.Cordinate.X.ToString() + "," + player.Cordinate.Y.ToString() + ")");
         }
-
-        private static void ClearMiniMap()
-        {
-            for (int lineIndex = 0; lineIndex < MAXMINIMAPLINES; lineIndex++)
-            {
-                UILineEdit.setGuiLines(MINIMAPLINE + lineIndex);
-                Console.WriteLine(new string(' ', Console.WindowWidth));
-            }
-        }
-
     }
 }

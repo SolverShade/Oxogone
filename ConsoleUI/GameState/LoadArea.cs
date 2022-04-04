@@ -13,9 +13,9 @@ namespace ConsoleUI.GameState
 {
     public class LoadArea
     {
-        StoryText storyText = new StoryText();
         private Player player = new Player(new Cordinate(10,10));
         private Map map = new Map(100,100);
+        private Area currentArea;  
         private CommandHandler commandHandler;
 
         public void GenerateWorld()
@@ -25,26 +25,36 @@ namespace ConsoleUI.GameState
             map.Areas = map.MakeEmptyMap();
             map.Areas = map.AddCustomAreas(map.Areas); 
 
-            Area lastArea = map.Areas[player.Cordinate.X, player.Cordinate.Y];
+            currentArea = map.Areas[player.Cordinate.X, player.Cordinate.Y];
 
-            UpdateWorld(lastArea);
+            UpdateWorld();
         }
 
-        public void UpdateWorld(Area curentArea)
+        public void UpdateWorld()
         {
-            storyText.DisplayAreaText(curentArea);
-
-            //Clear Minimap and display combat UI if an enemy is present TODO:
-
+            StoryText.DisplayAreaText(currentArea);
             MiniMap.Update(player, map);
+            ActionWriter.PossibleActions();
 
-            Actions.WritePossibleActions();
+            CheckForCombat();         
 
-            commandHandler.PrepareHandles();
-            commandHandler.HandleCommand();        
+            commandHandler.PrepareHandles(); //Forgot what this does debug TODO:
+            commandHandler.HandleCommand();
 
-            UpdateWorld(map.Areas[player.Cordinate.X, player.Cordinate.Y]);
+            currentArea = map.Areas[player.Cordinate.X, player.Cordinate.Y];
+
+            UpdateWorld();
         }
+
+        private void CheckForCombat()
+        {
+            if(currentArea.Mob != null)
+            {
+                StoryText.DisplayCombatText();
+                ActionWriter.CombatActions();
+            }            
+        }
+
 
     }
 }

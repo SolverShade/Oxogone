@@ -17,10 +17,8 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             WindowListener.PreventResize();
-            StartGame();
 
-            //MainMenu.WriteMenu();
-            //MainMenu.Command();
+            StartGame();
 
             Console.ReadLine();
         }

@@ -53,7 +53,7 @@
     <Compile Include="LevelGui\MiniMap.cs" />
     <Compile Include="LevelGui\StoryText.cs" />
     <Compile Include="User\Player.cs" />
-    <Compile Include="GameState\Actions.cs" />
+    <Compile Include="LevelGui\ActionWriter.cs" />
     <Compile Include="Menu\CharachterSelect.cs" />
     <Compile Include="Menu\DeveloperMenu.cs" />
     <Compile Include="Menu\Items.cs" />

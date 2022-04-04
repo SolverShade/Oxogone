@@ -42,12 +42,11 @@ namespace ConsoleUI.GameState
                 string userCommand = Console.ReadLine();
                 char commandPrefix = 'z';
 
-                if (userCommand.Length > 0)
+                if (userCommand.Length > 0) // gets user input and erases it after is has been entered 
                 {
                  commandPrefix = userCommand.ToCharArray().ElementAt<char>(0);
+                 UILineEdit.ClearSpecifiedLines(userInputLine, 1); 
                 }
-
-                ClearUserInput();
 
                 if (new List<char>{ 'n', 'w', 's', 'e' }.Contains(commandPrefix))
                 {
@@ -62,17 +61,7 @@ namespace ConsoleUI.GameState
                 {
                     Environment.Exit(0);
                 }
-                else
-                {
-
-                }
             }
-        }
-
-        private void ClearUserInput()
-        {
-            UILineEdit.setGuiLines(userInputLine, 0);
-            Console.WriteLine(new string(' ', Console.WindowWidth));
         }
     }
 }
