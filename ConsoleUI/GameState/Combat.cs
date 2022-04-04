@@ -13,19 +13,19 @@ namespace ConsoleUI.GameState
 {
     public class Combat
     {
-        public Player Player { get; set; }
+        protected Player _player { get; set; }
 
         const int COMBATLINE = 20;
 
         public Combat(Player player)
         {
-            Player = player;
+            _player = player;
         }
 
         public void AttackMob()
         {
             Random hitPointsRange = new Random();
-            int attackValue = hitPointsRange.Next(0, Player.AttackPoints);
+            int attackValue = hitPointsRange.Next(0, _player.AttackPoints);
 
             UILineEdit.ClearSpecifiedLines(COMBATLINE, 1);
             UILineEdit.setGuiLines(COMBATLINE);

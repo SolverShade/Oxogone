@@ -72,8 +72,7 @@ namespace ConsoleUI.Menu
             else if(charachterIndex > 0 && charachterIndex <= playerSaveSlots.Count) 
             {
                 Console.Clear();
-                LoadArea loadArea = new LoadArea();
-                loadArea.GenerateWorld();
+                Program.StartGame();
             }
             else
             {

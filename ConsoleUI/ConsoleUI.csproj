@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameState\ItemManager.cs" />
-    <Compile Include="GameState\LoadArea.cs" />
+    <Compile Include="GameState\World.cs" />
     <Compile Include="GameState\Combat.cs" />
     <Compile Include="GameState\CommandHandler.cs" />
     <Compile Include="LevelGui\MiniMap.cs" />

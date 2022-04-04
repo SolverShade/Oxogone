@@ -11,37 +11,31 @@ using LogicLibrary.Mapping;
 
 namespace ConsoleUI.GameState
 {
-    public class LoadArea
+    public class World
     {
-        private Player player = new Player(new Cordinate(10,10));
-        private Map map = new Map(100,100);
-        private Area currentArea;  
-        private CommandHandler commandHandler;
-
-        public void GenerateWorld()
+        protected Map _map { get; set; }
+        protected Player _player { get; set; }
+        protected Area currentArea { get; set; }
+        protected CommandHandler commandHandler { get; set; }
+        public World(Map map)
         {
-            commandHandler = new CommandHandler(player, map);
-
-            map.Areas = map.MakeEmptyMap();
-            map.Areas = map.AddCustomAreas(map.Areas); 
-
-            currentArea = map.Areas[player.Cordinate.X, player.Cordinate.Y];
-
-            UpdateWorld();
+            _map = map;
+            _player = new Player(new Cordinate(10, 10));            
+            currentArea = _map.Areas[_player.Cordinate.X, _player.Cordinate.Y];
+            commandHandler = new CommandHandler(_player, _map);
         }
 
         public void UpdateWorld()
         {
             StoryText.DisplayAreaText(currentArea);
-            MiniMap.Update(player, map);
+            MiniMap.Update(_player, _map);
             ActionWriter.PossibleActions();
 
             CheckForCombat();         
 
-            commandHandler.PrepareHandles(); //Forgot what this does debug TODO:
             commandHandler.HandleCommand();
 
-            currentArea = map.Areas[player.Cordinate.X, player.Cordinate.Y];
+            currentArea = _map.Areas[_player.Cordinate.X, _player.Cordinate.Y];
 
             UpdateWorld();
         }

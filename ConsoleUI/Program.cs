@@ -2,6 +2,7 @@
 using ConsoleUI.GameState;
 using ConsoleUI.Menu;
 using ConsoleUI.Window;
+using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +24,14 @@ namespace ConsoleUI
             Console.ReadLine();
         }
 
-        static void StartGame()
+        public static void StartGame()
         {
-            LoadArea loadArea = new LoadArea();
-            loadArea.GenerateWorld();
+            Map map = new Map(100, 100);
+            map.Areas = map.MakeEmptyMap();
+            map.Areas = map.AddCustomAreas(map.Areas);
+
+            World world = new World(map);
+            world.UpdateWorld();
         }
 
 

@@ -12,8 +12,8 @@ namespace ConsoleUI.GameState
 {
     public class CommandHandler
     {
-        public Player Player { get; set; }
-        public Map Map { get; set; }
+        protected Player _player { get; set; }
+        protected Map _map { get; set; }
 
         private MoveArea moveArea;
         private Combat combat;
@@ -22,15 +22,12 @@ namespace ConsoleUI.GameState
 
         public CommandHandler(Player player, Map map)
         {
-            Player = player;
-            Map = map;
-        }
+            _player = player;
+            _map = map;
 
-        public void PrepareHandles()
-        {
-           moveArea = new MoveArea(Player, Map);
-           combat = new Combat(Player);
-        }   
+            moveArea = new MoveArea(_player, _map);
+            combat = new Combat(_player);
+        }
 
         public void HandleCommand()
         {

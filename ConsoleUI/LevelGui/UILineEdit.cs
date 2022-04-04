@@ -11,8 +11,6 @@ namespace ConsoleUI
     public static class UILineEdit
     {
         const int consoleLines = 28;
-
-        private static string[] lineNums = new string[consoleLines];
         private static int currentLinePosition = consoleLines;
 
         public static void setGuiLines(int lineLocation, int cursorPlacement = 0)
