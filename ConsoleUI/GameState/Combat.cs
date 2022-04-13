@@ -16,27 +16,24 @@ namespace ConsoleUI.GameState
     {
         protected Player _player { get; set; }
 
-        const int COMBATLINE = 20;
+        public const int ATTACKLINE = 20;
 
-        public Combat(Player player)
+        public Combat(Player player, Mob mob)
         {
             _player = player;
         }
 
         public void RunCombatAndDisplayStats(Mob mob)
         {
-            mob.Health -= _player.AttackPoints;
-            _player.Oxygen -= mob.Attack;    
+            mob.Health -= _player.BaseAttack;
+            _player.Oxygen -= mob.BaseAttack;    
         }
 
-        public void AttackNothing()
+        public static void NoMobToAttack()
         {
-            Random hitPointsRange = new Random();
-            int attackValue = hitPointsRange.Next(0, _player.AttackPoints);
-
-            UILineEdit.ClearSpecifiedLines(COMBATLINE, 1);
-            UILineEdit.setGuiLines(COMBATLINE);
-            ColoredConsole.Write("Player did " + $"{ attackValue.ToString()}".Green() + " damage to nothing");
+            UILineEdit.ClearSpecifiedLines(ATTACKLINE, 1);
+            UILineEdit.setGuiLines(ATTACKLINE);
+            ColoredConsole.Write("There is currently no mob present in the room to attack...");
         }
 
 

@@ -26,7 +26,6 @@ namespace ConsoleUI.GameState
             _map = map;
 
             moveArea = new MoveArea(_player, _map);
-            combat = new Combat(_player);
         }
 
         public void HandleCommand()
@@ -52,13 +51,15 @@ namespace ConsoleUI.GameState
                 }
                 else if (new List<char> { 'a' }.Contains(commandPrefix))
                 {
-                    combat.AttackNothing();
+                    Combat.NoMobToAttack();
                 }
                 else if (new List<char> { 'q' }.Contains(commandPrefix))
-                {
+                {                    
                     Environment.Exit(0);
                 }
             }
+
+            UILineEdit.ClearSpecifiedLines(Combat.ATTACKLINE, Combat.ATTACKLINE);
         }
     }
 }

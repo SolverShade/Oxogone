@@ -17,21 +17,21 @@ namespace LogicLibrary.Mobs
         public string Race { get; set; }
         public string CombatClass { get; set; }
         public int Health { get; set; } 
-        public int Attack { get; set; }
+        public int BaseAttack { get; set; }
         public string Weapon { get; set; }
         public List<string> Inventory { get; set; }
         public string Description { get; set; }
 
         //TODO: Class, Weapon, and Inventory will be randomly generated. currently they are only built at string placeholders
 
-        public Mob(int id, string race, string name, string combatClass, int health, int attack, string weapon, List<string> inventory, string description)
+        public Mob(int id, string race, string name, string combatClass, int health, int baseAttack, string weapon, List<string> inventory, string description)
         {
             ID = id;
             Name = name;
             Race = race;
             CombatClass = combatClass; 
             Health = health;
-            Attack = attack;
+            BaseAttack = baseAttack;
             Weapon = weapon;
             Inventory = inventory;
             Description = description; 

@@ -13,9 +13,9 @@ namespace ConsoleUI.GameState
 {
     public class World
     {
-        protected Map _map { get; set; }
-        protected Player _player { get; set; }
-        protected Area currentArea { get; set; }
+        private Player _player { get; set; }
+        private Area currentArea { get; set; }
+        protected Map _map { get; set; }       
         protected CommandHandler commandHandler { get; set; }
         public World(Map map)
         {
@@ -45,6 +45,9 @@ namespace ConsoleUI.GameState
             if(currentArea.Mob != null)
             {
                 StoryText.DisplayCombatText();
+
+                Combat combat = new Combat(_player, currentArea.Mob);
+
                 ActionWriter.CombatActions();
             }            
         }
