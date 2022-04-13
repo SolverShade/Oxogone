@@ -1,7 +1,7 @@
 ﻿#region usingStatements
 using Colors.Net;
 using Colors.Net.StringColorExtensions;
-using ConsoleUI.User;
+using LogicLibrary.User;
 using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;

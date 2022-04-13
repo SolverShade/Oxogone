@@ -1,5 +1,5 @@
 ﻿#region usingStatements 
-using ConsoleUI.User;
+using LogicLibrary.User;
 using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;
@@ -52,7 +52,7 @@ namespace ConsoleUI.GameState
                 }
                 else if (new List<char> { 'a' }.Contains(commandPrefix))
                 {
-                    combat.AttackMob();
+                    combat.AttackNothing();
                 }
                 else if (new List<char> { 'q' }.Contains(commandPrefix))
                 {

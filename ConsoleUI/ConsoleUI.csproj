@@ -52,7 +52,6 @@
     <Compile Include="GameState\CommandHandler.cs" />
     <Compile Include="LevelGui\MiniMap.cs" />
     <Compile Include="LevelGui\StoryText.cs" />
-    <Compile Include="User\Player.cs" />
     <Compile Include="LevelGui\ActionWriter.cs" />
     <Compile Include="Menu\CharachterSelect.cs" />
     <Compile Include="Menu\DeveloperMenu.cs" />

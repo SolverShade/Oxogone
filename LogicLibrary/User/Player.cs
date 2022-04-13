@@ -1,5 +1,4 @@
 ﻿#region usingStatements 
-using ConsoleUI.LevelGui;
 using LogicLibrary.Items;
 using LogicLibrary.Mapping;
 using System;
@@ -9,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 #endregion
 
-namespace ConsoleUI.User
+namespace LogicLibrary.User
 {
     public class Player
     {

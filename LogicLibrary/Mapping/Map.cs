@@ -41,7 +41,7 @@ namespace LogicLibrary.Mapping
                 string line = File.ReadLines(AreaTypesPath).ElementAt(areaIndex);
                 string[] AreaTokens = line.Split(',');
                 List<string> UsableItems = AreaTokens[5].Split('-').ToList<string>();
-                Mob mob = MobBuilder.GenerateMob(AreaTokens[4]);
+                Mob mob = MobBuilder.GenerateMob(AreaTokens[4]); // Extract Mob From Text 
                 customAreas.Add(new Area(areaIndex, new Cordinate(int.Parse(AreaTokens[0]), int.Parse(AreaTokens[1])), AreaTokens[2], AreaTokens[3], mob, UsableItems));
             }
 

@@ -1,6 +1,6 @@
 ﻿#region usingStatements 
 using ConsoleUI.LevelGui;
-using ConsoleUI.User;
+using LogicLibrary.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;

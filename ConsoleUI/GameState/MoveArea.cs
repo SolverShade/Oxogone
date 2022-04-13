@@ -1,5 +1,5 @@
 ﻿#region usingStatements 
-using ConsoleUI.User;
+using LogicLibrary.User;
 using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;

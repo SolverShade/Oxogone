@@ -1,7 +1,8 @@
 ﻿#region usingStatements 
 using Colors.Net;
 using Colors.Net.StringColorExtensions;
-using ConsoleUI.User;
+using LogicLibrary.User;
+using LogicLibrary.Mobs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,13 @@ namespace ConsoleUI.GameState
             _player = player;
         }
 
-        public void AttackMob()
+        public void RunCombatAndDisplayStats(Mob mob)
+        {
+            mob.Health -= _player.AttackPoints;
+            _player.Oxygen -= mob.Attack;    
+        }
+
+        public void AttackNothing()
         {
             Random hitPointsRange = new Random();
             int attackValue = hitPointsRange.Next(0, _player.AttackPoints);
