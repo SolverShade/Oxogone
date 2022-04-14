@@ -1,4 +1,5 @@
 ﻿#region usingStatements
+using ConsoleUI.GameState;
 using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,6 @@ namespace ConsoleUI.LevelGui
             UILineEdit.setGuiLines(STORYLINE);
 
             Console.WriteLine("You are currently in combat and cannot escape until you or the enemy are no longer standing"); 
-        }
+        }        
     }
 }

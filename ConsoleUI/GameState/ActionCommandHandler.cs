@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleUI.LevelGui;
 #endregion
 
 namespace ConsoleUI.GameState
@@ -50,7 +51,7 @@ namespace ConsoleUI.GameState
                 }
                 else if (new List<char> { 'a' }.Contains(commandPrefix))
                 {
-                    Combat.NoMobToAttack();
+                    DisplayStatus.NoMobToAttack();
                 }
                 else if (new List<char> { 'q' }.Contains(commandPrefix))
                 {                    
@@ -58,7 +59,7 @@ namespace ConsoleUI.GameState
                 }
             }
 
-            UILineEdit.ClearSpecifiedLines(Combat.ATTACKLINE, Combat.ATTACKLINE);
+            DisplayStatus.ClearStatusLine();
         }
     }
 }

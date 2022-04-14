@@ -8,15 +8,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.LevelGui
 {
-    public static class ActionWriter
+    public static class ChoicesWriter
     {
         const int ACTIONLINE = 22;
         const int MAXLINES = 4;
         public static void PossibleActions()
         {
-
-            UILineEdit.ClearSpecifiedLines(ACTIONLINE, MAXLINES);
-            UILineEdit.setGuiLines(ACTIONLINE, 0);
+            ClearChoices();
 
             Console.WriteLine("-ACTIONS-");
             Console.WriteLine("Movement: n(North), e(East), s(South), w(West) ");
@@ -26,11 +24,18 @@ namespace ConsoleUI.LevelGui
 
         public static void CombatActions()
         {
-            UILineEdit.ClearSpecifiedLines(ACTIONLINE, MAXLINES);
-            UILineEdit.setGuiLines(ACTIONLINE, 0);
+            ClearChoices();
 
             Console.WriteLine("-COMBAT-");
             Console.WriteLine("Offense: a(Attack)");
         }
+
+        public static void ClearChoices()
+        {
+            UILineEdit.ClearSpecifiedLines(ACTIONLINE, MAXLINES);
+            UILineEdit.setGuiLines(ACTIONLINE, 0);
+        }
+
+        
     }
 }

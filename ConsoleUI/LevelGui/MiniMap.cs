@@ -16,7 +16,7 @@ namespace ConsoleUI.LevelGui
     {
         const int MINIMAPLINE = 9;
         const int MINIMAPSPACE = 6;
-        const int MAXMINIMAPLINES = 8;
+        const int MAXMINIMAPLINES = 11;
 
         static readonly int[] marks = new int[] { 3, 5, 7, 5, 3};
 
@@ -97,6 +97,11 @@ namespace ConsoleUI.LevelGui
         {
             UILineEdit.setGuiLines((MINIMAPLINE - 4), MINIMAPSPACE - 3);
             Console.Write("(" + player.Cordinate.X.ToString() + "," + player.Cordinate.Y.ToString() + ")");
+        }
+
+        public static void ClearMiniMap()
+        {
+            UILineEdit.ClearSpecifiedLines(MINIMAPLINE - 4, MAXMINIMAPLINES);
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleUI.LevelGui;
 #endregion
 
 namespace ConsoleUI.GameState
@@ -17,7 +18,7 @@ namespace ConsoleUI.GameState
         protected Player _player { get; set; }
         protected Mob _mob { get; set; }
 
-        public const int ATTACKLINE = 20;
+        const int userInputLine = 27;
 
         public Combat(Player player, Mob mob)
         {
@@ -25,23 +26,41 @@ namespace ConsoleUI.GameState
             _mob = mob;
         }
 
-        public void RunCombatAndDisplayStats()
+        public void PlayerCombatTurn()
         {
-            bool commandsHandled = false;
+            string userCommand = Console.ReadLine();
+            char commandPrefix = userCommand.ToCharArray().ElementAt<char>(0); 
 
-            while (commandsHandled == false)
+            if (userCommand.Length > 0) // gets user input and erases it after is has been entered 
             {
-                _mob.Health -= _player.BaseAttack;
-                _player.Oxygen -= _mob.BaseAttack;
-
+                UILineEdit.setGuiLines(userInputLine, 0);
             }
-        }      
 
-        public static void NoMobToAttack()
+            if (new List<char> { 'n', 'w', 's', 'e' }.Contains(commandPrefix))
+            {
+                //DisplayStatus.
+            }
+            else if (new List<char> { 'a' }.Contains(commandPrefix))
+            {
+                _player.Oxygen -= _mob.BaseAttack;
+                _mob.Health -= _player.BaseAttack; 
+            }
+            else if (new List<char> { 'q' }.Contains(commandPrefix))
+            {
+                Environment.Exit(0);
+            }            
+        }         
+
+        public bool IsPlayerOrMobDead()
         {
-            UILineEdit.ClearSpecifiedLines(ATTACKLINE, 1);
-            UILineEdit.setGuiLines(ATTACKLINE);
-            ColoredConsole.Write("There is currently no mob present in the room to attack...");
+            if(_player.Oxygen <= 0 || _mob.Health <= 0) // add game over and victory option 
+            {
+                return true; 
+            }
+            else
+            {
+                return false;
+            }
         }
 
 

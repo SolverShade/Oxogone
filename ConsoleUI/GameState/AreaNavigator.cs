@@ -46,15 +46,14 @@ namespace ConsoleUI.GameState
                     break;
                 default:
                     break;
-            }
-
-            Player.Cordinate = CurrentCordinate;
+            }           
         }
 
         public bool HasPlayerMoved()
         {
             if (!bannedAreas.Contains(Map.Areas[CurrentCordinate.X, CurrentCordinate.Y].Name))
             {
+                Player.Cordinate = CurrentCordinate;
                 return true;
             }
             else

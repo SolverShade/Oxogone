@@ -29,7 +29,8 @@ namespace ConsoleUI.GameState
         {
             StoryWriter.DisplayAreaText(currentArea);
             MiniMap.Update(_player, _map);
-            ActionWriter.PossibleActions();
+            DisplayStatus.DisplayPlayerStats(_player);
+            ChoicesWriter.PossibleActions();
 
             CheckForCombat();         
 
@@ -45,12 +46,19 @@ namespace ConsoleUI.GameState
             if(currentArea.Mob != null)
             {
                 StoryWriter.DisplayCombatText();
+                MiniMap.ClearMiniMap();
+                ChoicesWriter.CombatActions();
 
                 Combat combat = new Combat(_player, currentArea.Mob);
 
-                combat.RunCombatAndDisplayStats();
+                bool ContinueCombat = false;
 
-                ActionWriter.CombatActions();
+                while (ContinueCombat == false)
+                {
+                    DisplayStatus.DisplayMobCombatStats(currentArea.Mob);
+                    combat.PlayerCombatTurn();
+                    ContinueCombat = combat.IsPlayerOrMobDead();
+                }
             }            
         }
 
