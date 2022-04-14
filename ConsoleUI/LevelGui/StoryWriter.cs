@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.LevelGui
 {
-    public static class StoryText
+    public static class StoryWriter
     {
         const int STORYLINE = 1;
         const int MAXSTORYLINES = 3;

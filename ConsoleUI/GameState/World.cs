@@ -13,21 +13,21 @@ namespace ConsoleUI.GameState
 {
     public class World
     {
-        private Player _player { get; set; }
-        private Area currentArea { get; set; }
+        protected Player _player { get; set; }
+        protected Area currentArea { get; set; }
         protected Map _map { get; set; }       
-        protected CommandHandler commandHandler { get; set; }
+        protected ActionCommandHandler commandHandler { get; set; }
         public World(Map map)
         {
             _map = map;
             _player = new Player(new Cordinate(10, 10));            
             currentArea = _map.Areas[_player.Cordinate.X, _player.Cordinate.Y];
-            commandHandler = new CommandHandler(_player, _map);
+            commandHandler = new ActionCommandHandler(_player, _map);
         }
 
         public void UpdateWorld()
         {
-            StoryText.DisplayAreaText(currentArea);
+            StoryWriter.DisplayAreaText(currentArea);
             MiniMap.Update(_player, _map);
             ActionWriter.PossibleActions();
 
@@ -44,9 +44,11 @@ namespace ConsoleUI.GameState
         {
             if(currentArea.Mob != null)
             {
-                StoryText.DisplayCombatText();
+                StoryWriter.DisplayCombatText();
 
                 Combat combat = new Combat(_player, currentArea.Mob);
+
+                combat.RunCombatAndDisplayStats();
 
                 ActionWriter.CombatActions();
             }            

@@ -10,22 +10,21 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.GameState
 {
-    public class CommandHandler
+    public class ActionCommandHandler
     {
         protected Player _player { get; set; }
         protected Map _map { get; set; }
 
-        private MoveArea moveArea;
-        private Combat combat;
+        private AreaNavigator areaNavigator;
 
         const int userInputLine = 27;
 
-        public CommandHandler(Player player, Map map)
+        public ActionCommandHandler(Player player, Map map)
         {
             _player = player;
             _map = map;
 
-            moveArea = new MoveArea(_player, _map);
+            areaNavigator = new AreaNavigator(_player, _map);
         }
 
         public void HandleCommand()
@@ -46,8 +45,8 @@ namespace ConsoleUI.GameState
 
                 if (new List<char>{ 'n', 'w', 's', 'e' }.Contains(commandPrefix))
                 {
-                    moveArea.EnterCommand(commandPrefix);
-                    commandsHandled = moveArea.movedArea;
+                    areaNavigator.MoveArea(commandPrefix);
+                    commandsHandled = areaNavigator.HasPlayerMoved();
                 }
                 else if (new List<char> { 'a' }.Contains(commandPrefix))
                 {

@@ -15,19 +15,27 @@ namespace ConsoleUI.GameState
     public class Combat
     {
         protected Player _player { get; set; }
+        protected Mob _mob { get; set; }
 
         public const int ATTACKLINE = 20;
 
         public Combat(Player player, Mob mob)
         {
             _player = player;
+            _mob = mob;
         }
 
-        public void RunCombatAndDisplayStats(Mob mob)
+        public void RunCombatAndDisplayStats()
         {
-            mob.Health -= _player.BaseAttack;
-            _player.Oxygen -= mob.BaseAttack;    
-        }
+            bool commandsHandled = false;
+
+            while (commandsHandled == false)
+            {
+                _mob.Health -= _player.BaseAttack;
+                _player.Oxygen -= _mob.BaseAttack;
+
+            }
+        }      
 
         public static void NoMobToAttack()
         {

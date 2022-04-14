@@ -10,24 +10,25 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.GameState
 {
-    public class MoveArea
+    public class AreaNavigator
     {
         public Map Map { get; set; }
         public Player Player { get; set; }
 
-        public bool movedArea;
+        public Cordinate CurrentCordinate;
+
         private List<string> bannedAreas = new List<string>() { "Wall", "LockedDoor" };     
-        public MoveArea(Player player, Map map)
+        public AreaNavigator(Player player, Map map)
         {
             Player = player;
             Map = map;
+
+            CurrentCordinate = Player.Cordinate;
         }
 
-        public void EnterCommand(char commandPrefix)
+        public void MoveArea(char commandPrefix)
         {            
-            Cordinate CurrentCordinate = new Cordinate(Player.Cordinate.X, Player.Cordinate.Y);
-
-            movedArea = false;
+            CurrentCordinate = new Cordinate(Player.Cordinate.X, Player.Cordinate.Y);
 
             switch (commandPrefix)
             {
@@ -47,10 +48,18 @@ namespace ConsoleUI.GameState
                     break;
             }
 
-            if(!bannedAreas.Contains(Map.Areas[CurrentCordinate.X, CurrentCordinate.Y].Name))
+            Player.Cordinate = CurrentCordinate;
+        }
+
+        public bool HasPlayerMoved()
+        {
+            if (!bannedAreas.Contains(Map.Areas[CurrentCordinate.X, CurrentCordinate.Y].Name))
             {
-                Player.Cordinate = CurrentCordinate;
-                movedArea = true;
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

@@ -49,9 +49,9 @@
     <Compile Include="GameState\ItemManager.cs" />
     <Compile Include="GameState\World.cs" />
     <Compile Include="GameState\Combat.cs" />
-    <Compile Include="GameState\CommandHandler.cs" />
+    <Compile Include="GameState\ActionCommandHandler.cs" />
     <Compile Include="LevelGui\MiniMap.cs" />
-    <Compile Include="LevelGui\StoryText.cs" />
+    <Compile Include="LevelGui\StoryWriter.cs" />
     <Compile Include="LevelGui\ActionWriter.cs" />
     <Compile Include="Menu\CharachterSelect.cs" />
     <Compile Include="Menu\DeveloperMenu.cs" />
@@ -60,7 +60,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LevelGui\UILineEdit.cs" />
-    <Compile Include="GameState\MoveArea.cs" />
+    <Compile Include="GameState\AreaNavigator.cs" />
     <Compile Include="Window\WindowListener.cs" />
   </ItemGroup>
   <ItemGroup>
