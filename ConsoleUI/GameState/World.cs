@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LogicLibrary.Mapping;
+using ConsoleUI.User;
 #endregion
 
 namespace ConsoleUI.GameState
@@ -17,10 +18,11 @@ namespace ConsoleUI.GameState
         protected Area currentArea { get; set; }
         protected Map _map { get; set; }       
         protected ActionCommandHandler commandHandler { get; set; }
-        public World(Map map)
+        public World(Player player, Map map)
         {
             _map = map;
-            _player = new Player(new Cordinate(10, 10));            
+            _player = player;        
+
             currentArea = _map.Areas[_player.Cordinate.X, _player.Cordinate.Y];
             commandHandler = new ActionCommandHandler(_player, _map);
         }
@@ -29,7 +31,7 @@ namespace ConsoleUI.GameState
         {
             StoryWriter.DisplayAreaText(currentArea);
             MiniMap.Update(_player, _map);
-            CombatDisplay.DisplayPlayerStats(_player);
+            PlayerDisplay.DisplayPlayerStats(_player);
             ChoicesWriter.PossibleActions();
 
             CheckForCombat();         
@@ -45,8 +47,9 @@ namespace ConsoleUI.GameState
         {
             if(currentArea.Mob != null)
             {
-                StoryWriter.DisplayCombatText();
+                StoryWriter.ClearStoryLines();
                 MiniMap.ClearMiniMap();
+                PlayerDisplay.ClearPlayerLine();
                 ChoicesWriter.CombatActions();
 
                 Combat combat = new Combat(_player, currentArea.Mob);

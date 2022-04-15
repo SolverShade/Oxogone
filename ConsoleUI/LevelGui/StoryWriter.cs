@@ -16,8 +16,7 @@ namespace ConsoleUI.LevelGui
         const int MAXSTORYLINES = 3;
         public static void DisplayAreaText(Area area)
         {
-            UILineEdit.ClearSpecifiedLines(STORYLINE, MAXSTORYLINES);
-            UILineEdit.setGuiLines(STORYLINE);
+            ClearStoryLines();
 
             string[] textLines = area.Description.Split('>');
             foreach(string text in textLines)
@@ -26,12 +25,10 @@ namespace ConsoleUI.LevelGui
             }
         }
 
-        public static void DisplayCombatText()
+        public static void ClearStoryLines()
         {
             UILineEdit.ClearSpecifiedLines(STORYLINE, MAXSTORYLINES);
             UILineEdit.setGuiLines(STORYLINE);
-
-            Console.WriteLine("You are currently in combat and cannot escape until you or the enemy are no longer standing"); 
-        }        
+        }
     }
 }

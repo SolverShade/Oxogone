@@ -18,7 +18,7 @@ namespace ConsoleUI.GameState
 
         private AreaNavigator areaNavigator;
 
-        const int userInputLine = 27;
+        const int userInputLine = 28;
 
         public ActionCommandHandler(Player player, Map map)
         {

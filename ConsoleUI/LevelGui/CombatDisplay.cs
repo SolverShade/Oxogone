@@ -14,17 +14,9 @@ namespace ConsoleUI.LevelGui
     {
 
         private const int STATUSLINE = 20;
-        private const int PLAYERLINE = 22;
 
-        private const int COMBATLINE = 3;
-        private const int MAXCOMBATLINES = 16;
-
-        public static void DisplayPlayerStats(Player player)
-        {
-            ClearStatusLine();
-
-            ColoredConsole.WriteLine("Player Oxogone: " + $"{player.Oxygen}".Green());
-        }
+        private const int COMBATLINE = 1;
+        private const int MAXCOMBATLINES = 22;
 
         public static void DisplayMobCombatStats(Mob mob)
         {
@@ -40,6 +32,14 @@ namespace ConsoleUI.LevelGui
             ColoredConsole.WriteLine("\n Description: " + mob.Description);
             ColoredConsole.WriteLine("\n Health: " + $"{mob.Health}".Cyan() + "     " + "BaseAttack: " + $"{mob.BaseAttack}".Magenta());
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());            
+        }
+
+        public static void DisplayPlayerCombatStats()
+        {
+            ColoredConsole.WriteLine("Player".Green());
+            ColoredConsole.WriteLine("------------------------------------------------".Yellow());
+
+            ColoredConsole.WriteLine("------------------------------------------------".Yellow());
         }
 
         public static void NoMobToAttack()

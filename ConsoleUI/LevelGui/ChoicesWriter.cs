@@ -10,7 +10,7 @@ namespace ConsoleUI.LevelGui
 {
     public static class ChoicesWriter
     {
-        const int ACTIONLINE = 22;
+        const int CHOICELINE = 24;
         const int MAXLINES = 4;
         public static void PossibleActions()
         {
@@ -32,8 +32,8 @@ namespace ConsoleUI.LevelGui
 
         public static void ClearChoices()
         {
-            UILineEdit.ClearSpecifiedLines(ACTIONLINE, MAXLINES);
-            UILineEdit.setGuiLines(ACTIONLINE, 0);
+            UILineEdit.ClearSpecifiedLines(CHOICELINE, MAXLINES);
+            UILineEdit.setGuiLines(CHOICELINE, 0);
         }
 
         

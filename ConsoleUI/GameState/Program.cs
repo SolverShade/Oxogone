@@ -1,8 +1,9 @@
 ﻿#region usingStatements 
 using ConsoleUI.GameState;
-using ConsoleUI.Menu;
+using ConsoleUI.User;
 using ConsoleUI.Window;
 using LogicLibrary.Mapping;
+using LogicLibrary.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,11 +27,15 @@ namespace ConsoleUI
 
         public static void StartGame()
         {
+            CharachterSelect.ExtractSavedCharachters();
+            Player player = CharachterSelect.CreateOrLoadCharachter();
+            Console.Clear();
+
             Map map = new Map(100, 100);
             map.Areas = map.MakeEmptyMap();
             map.Areas = map.AddCustomAreas(map.Areas);
 
-            World world = new World(map);
+            World world = new World(player, map);
             world.UpdateWorld();
         }
 

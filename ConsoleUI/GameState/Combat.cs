@@ -18,7 +18,7 @@ namespace ConsoleUI.GameState
         protected Player _player { get; set; }
         protected Mob _mob { get; set; }
 
-        const int userInputLine = 27;
+        const int userInputLine = 28;
 
         public Combat(Player player, Mob mob)
         {
