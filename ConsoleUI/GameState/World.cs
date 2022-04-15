@@ -29,7 +29,7 @@ namespace ConsoleUI.GameState
         {
             StoryWriter.DisplayAreaText(currentArea);
             MiniMap.Update(_player, _map);
-            DisplayStatus.DisplayPlayerStats(_player);
+            CombatDisplay.DisplayPlayerStats(_player);
             ChoicesWriter.PossibleActions();
 
             CheckForCombat();         
@@ -55,10 +55,11 @@ namespace ConsoleUI.GameState
 
                 while (ContinueCombat == false)
                 {
-                    DisplayStatus.DisplayMobCombatStats(currentArea.Mob);
+                    CombatDisplay.DisplayMobCombatStats(currentArea.Mob);
                     combat.PlayerCombatTurn();
                     ContinueCombat = combat.IsPlayerOrMobDead();
                 }
+                CombatDisplay.ClearCombatStatus(); // after this make normal UI re appear
             }            
         }
 

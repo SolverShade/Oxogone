@@ -50,7 +50,7 @@
     <Compile Include="GameState\World.cs" />
     <Compile Include="GameState\Combat.cs" />
     <Compile Include="GameState\ActionCommandHandler.cs" />
-    <Compile Include="LevelGui\DisplayStatus.cs" />
+    <Compile Include="LevelGui\CombatDisplay.cs" />
     <Compile Include="LevelGui\MiniMap.cs" />
     <Compile Include="LevelGui\StoryWriter.cs" />
     <Compile Include="LevelGui\ChoicesWriter.cs" />

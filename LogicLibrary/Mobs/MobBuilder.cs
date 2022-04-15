@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicLibrary.GameItems;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace LogicLibrary.Mobs
         {
             try
             {
-                return GenerateMobOperation(mobType);
+                return SearchMobs(mobType);
             }
             catch
             {
@@ -23,7 +24,7 @@ namespace LogicLibrary.Mobs
             }
         }
 
-        public static Mob GenerateMobOperation(string mobType)
+        public static Mob SearchMobs(string mobType)
         {
             int mobID = 0;
 
@@ -35,16 +36,20 @@ namespace LogicLibrary.Mobs
                     if(mobType == mobTokens[0])
                     {
                         mobID++;
-                        string[] inventory = mobTokens[6].Split('-');
-                        return new Mob(mobID, mobTokens[0], mobTokens[1], mobTokens[2], int.Parse(mobTokens[3]), int.Parse(mobTokens[4]), mobTokens[5], inventory.ToList<string>(), mobTokens[7]);
+                        return BuildMob(mobID, mobTokens);                     
                     }
                 }
-                return null;
             }
-            else
-            {
-                return null; 
-            }
+                return null; //returning null means there is no mob in the area
+        }
+
+        private static Mob BuildMob(int mobID, string[] mobTokens)
+        {
+            Weapon weapon = WeaponBuilder.BuildRandomWeapon(); //currently every mob is assigned a random weapon regardless of which weapon is specefied in thier text file. Remove Specified weapon types?
+            string[] inventory = mobTokens[6].Split('-');
+
+
+            return new Mob(mobID, mobTokens[0], mobTokens[1], mobTokens[2], int.Parse(mobTokens[3]), int.Parse(mobTokens[4]), weapon, inventory.ToList<string>(), mobTokens[7]);
         }
 
         private static List<string> PossibleMobs()
@@ -56,18 +61,6 @@ namespace LogicLibrary.Mobs
                 possibleMobs.Add(mobTokens[0]);
             }
             return possibleMobs;         
-        }
-
-        private static bool IsMob(string mobValues)
-        {
-            if (mobValues != "None" && mobValues != "")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        }       
     }
 }

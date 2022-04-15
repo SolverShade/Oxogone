@@ -51,7 +51,7 @@ namespace ConsoleUI.GameState
                 }
                 else if (new List<char> { 'a' }.Contains(commandPrefix))
                 {
-                    DisplayStatus.NoMobToAttack();
+                    CombatDisplay.NoMobToAttack();
                 }
                 else if (new List<char> { 'q' }.Contains(commandPrefix))
                 {                    
@@ -59,7 +59,7 @@ namespace ConsoleUI.GameState
                 }
             }
 
-            DisplayStatus.ClearStatusLine();
+            CombatDisplay.ClearStatusLine();
         }
     }
 }

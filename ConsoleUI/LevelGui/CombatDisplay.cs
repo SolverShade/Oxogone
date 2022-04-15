@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.LevelGui
 {
-    public static class DisplayStatus
+    public static class CombatDisplay
     {
 
         private const int STATUSLINE = 20;
         private const int PLAYERLINE = 22;
 
-        private const int COMBATLINE = 6;
-        private const int MAXCOMBATLINES = 10;
+        private const int COMBATLINE = 3;
+        private const int MAXCOMBATLINES = 16;
 
         public static void DisplayPlayerStats(Player player)
         {
@@ -34,7 +34,7 @@ namespace ConsoleUI.LevelGui
             ColoredConsole.WriteLine("Enemy".Red());
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());
             ColoredConsole.WriteLine(" Name: " + $"{mob.Name}");
-            ColoredConsole.WriteLine(" Weapon: " + $"{mob.Weapon}");
+            ColoredConsole.WriteLine(" Weapon: " + $"{mob.Weapon.WeaponName}");
             ColoredConsole.WriteLine("\n Race: " + $"{mob.Race}");
             ColoredConsole.WriteLine(" Class: " + $"{mob.CombatClass}");
             ColoredConsole.WriteLine("\n Description: " + mob.Description);
@@ -47,6 +47,11 @@ namespace ConsoleUI.LevelGui
             ClearStatusLine();
 
             Console.WriteLine("There is currently no mob present in the room to attack...");
+        }
+
+        public static void ClearCombatStatus()
+        {
+            UILineEdit.ClearSpecifiedLines(COMBATLINE, MAXCOMBATLINES);
         }
 
         public static void ClearStatusLine()
