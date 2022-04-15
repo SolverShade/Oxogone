@@ -28,19 +28,17 @@ namespace ConsoleUI.GameState
 
         public void PlayerCombatTurn()
         {
+            UILineEdit.setGuiLines(userInputLine, 0);
+
             string userCommand = Console.ReadLine();
             char commandPrefix = userCommand.ToCharArray().ElementAt<char>(0); 
 
             if (userCommand.Length > 0) // gets user input and erases it after is has been entered 
             {
-                UILineEdit.setGuiLines(userInputLine, 0);
+                UILineEdit.ClearSpecifiedLines(userInputLine, 1);
             }
 
-            if (new List<char> { 'n', 'w', 's', 'e' }.Contains(commandPrefix))
-            {
-                //DisplayStatus.
-            }
-            else if (new List<char> { 'a' }.Contains(commandPrefix))
+            if (new List<char> { 'a' }.Contains(commandPrefix))
             {
                 _player.Oxygen -= _mob.BaseAttack;
                 _mob.Health -= _player.BaseAttack; 
