@@ -18,7 +18,13 @@ namespace ConsoleUI.LevelGui
         private const int COMBATLINE = 1;
         private const int MAXCOMBATLINES = 22;
 
-        public static void DisplayMobCombatStats(Mob mob)
+        public static void DisplayMobAndPlayerCombatStatus(Player player, Mob mob)
+        {
+            DisplayMobCombatStats(mob);
+            DisplayPlayerCombatStats(player);
+        }
+
+        private static void DisplayMobCombatStats(Mob mob)
         {
             UILineEdit.ClearSpecifiedLines(COMBATLINE, MAXCOMBATLINES);
             UILineEdit.setGuiLines(COMBATLINE);
@@ -34,7 +40,7 @@ namespace ConsoleUI.LevelGui
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());            
         }
 
-        public static void DisplayPlayerCombatStats(Player player)
+        private static void DisplayPlayerCombatStats(Player player)
         {
             ColoredConsole.WriteLine($"\nPlayer".Green());
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());

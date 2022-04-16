@@ -9,61 +9,47 @@ using System.Threading.Tasks;
 using LogicLibrary.Mapping;
 using ConsoleUI.User;
 using System.Threading;
+using ConsoleUI.GameState.States;
 #endregion
 
 namespace ConsoleUI.GameState
 {
     public class World
     {
-        protected Player _player { get; set; }
-        protected Area currentArea { get; set; }
-        protected Map _map { get; set; }       
-        protected ActionCommandHandler commandHandler { get; set; }
+        public Player Player { get; set; }
+        public Area CurrentArea { get; set; }
+        public Map Map { get; set; }       
+        public ActionCommandHandler CommandHandler { get; set; }
         public World(Player player, Map map)
         {
-            _map = map;
-            _player = player;        
+            Map = map;
+            Player = player;        
 
-            currentArea = _map.Areas[_player.Cordinate.X, _player.Cordinate.Y];
-            commandHandler = new ActionCommandHandler(_player, _map);
+            CurrentArea = Map.Areas[Player.Cordinate.X, Player.Cordinate.Y];
+            CommandHandler = new ActionCommandHandler(Player, Map);
         }
 
         public void UpdateWorld()
         {
             CheckForCombat();
 
-            StoryWriter.DisplayAreaText(currentArea);
-            MiniMap.Update(_player, _map);
-            PlayerDisplay.DisplayPlayerStats(_player);
+            StoryWriter.DisplayAreaText(CurrentArea);
+            MiniMap.Update(Player, Map);
+            PlayerDisplay.DisplayPlayerStats(Player);
             ChoicesWriter.PossibleActions();
 
-            commandHandler.HandleCommand();
+            CommandHandler.HandleCommand();
 
-            currentArea = _map.Areas[_player.Cordinate.X, _player.Cordinate.Y];
+            CurrentArea = Map.Areas[Player.Cordinate.X, Player.Cordinate.Y];
 
             UpdateWorld();
         }
 
         private void CheckForCombat()
         {
-            if(currentArea.Mob != null)
+            if(CurrentArea.Mob != null)
             {
-                ChoicesWriter.WriteCombatActions();
-
-                Combat combat = new Combat(_player, currentArea.Mob);
-                bool ContinueCombat = false;
-
-                while (ContinueCombat == false)
-                {
-                    CombatDisplay.DisplayMobCombatStats(currentArea.Mob);
-                    CombatDisplay.DisplayPlayerCombatStats(_player);
-                    combat.PlayerCombatTurn();
-                    combat.IfPlayerDeadRunGameOver();
-                    ContinueCombat = combat.IsMobDead();
-                }
-                currentArea.Mob = null; // remove mob because Victory
-                //make victory screen in new class
-                CombatDisplay.ClearCombatStatus(); // after this make normal UI re appear
+                StateManager.RunCombat(Player, CurrentArea);
             }            
         }
 

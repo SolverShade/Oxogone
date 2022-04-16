@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI.LevelGui
 {
-    public static class GameOver
+    public static class GameOverScreen
     {
-        public static void DIsplayGameOverDialoug()
+        public static void DisplayGameOverDialoug()
         {
             UILineEdit.ClearAllLines();
             ColoredConsole.WriteLine("Game Over!".White());

@@ -11,22 +11,22 @@ using System.Threading.Tasks;
 using ConsoleUI.LevelGui;
 #endregion
 
-namespace ConsoleUI.GameState
+namespace ConsoleUI.GameState.States
 {
-    public class Combat
+    public class CombatState
     {
         protected Player _player { get; set; }
         protected Mob _mob { get; set; }
 
         const int userInputLine = 28;
 
-        public Combat(Player player, Mob mob)
+        public CombatState(Player player, Mob mob)
         {
             _player = player;
             _mob = mob;
         }
 
-        public void PlayerCombatTurn()
+        public void CombatTurn()
         {
             UILineEdit.setGuiLines(userInputLine, 0);
 
@@ -60,15 +60,5 @@ namespace ConsoleUI.GameState
                 return false;
             }
         }
-
-        public void IfPlayerDeadRunGameOver()
-        {
-            if(_player.Oxygen <= 0)
-            {
-                GameOver.DIsplayGameOverDialoug();
-            }
-        }
-
-
     }
 }

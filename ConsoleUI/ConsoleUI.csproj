@@ -46,11 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameState\StateManager.cs" />
     <Compile Include="GameState\World.cs" />
-    <Compile Include="GameState\Combat.cs" />
+    <Compile Include="GameState\States\CombatState.cs" />
     <Compile Include="GameState\ActionCommandHandler.cs" />
     <Compile Include="LevelGui\CombatDisplay.cs" />
-    <Compile Include="LevelGui\GameOver.cs" />
+    <Compile Include="LevelGui\GameOverScreen.cs" />
     <Compile Include="LevelGui\MiniMap.cs" />
     <Compile Include="User\PlayerDisplay.cs" />
     <Compile Include="LevelGui\StoryWriter.cs" />
