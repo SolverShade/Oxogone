@@ -50,6 +50,7 @@
     <Compile Include="GameState\Combat.cs" />
     <Compile Include="GameState\ActionCommandHandler.cs" />
     <Compile Include="LevelGui\CombatDisplay.cs" />
+    <Compile Include="LevelGui\GameOver.cs" />
     <Compile Include="LevelGui\MiniMap.cs" />
     <Compile Include="User\PlayerDisplay.cs" />
     <Compile Include="LevelGui\StoryWriter.cs" />

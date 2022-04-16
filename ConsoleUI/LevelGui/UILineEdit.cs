@@ -55,6 +55,7 @@ namespace ConsoleUI
         public static void ClearAllLines()
         {
             ClearSpecifiedLines(1, 28);
+            UILineEdit.setGuiLines(1);
         }
     }
 }

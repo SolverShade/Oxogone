@@ -65,7 +65,7 @@ namespace ConsoleUI.GameState
         {
             if(_player.Oxygen <= 0)
             {
-
+                GameOver.DIsplayGameOverDialoug();
             }
         }
 

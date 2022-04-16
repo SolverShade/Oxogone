@@ -58,8 +58,11 @@ namespace ConsoleUI.GameState
                     CombatDisplay.DisplayMobCombatStats(currentArea.Mob);
                     CombatDisplay.DisplayPlayerCombatStats(_player);
                     combat.PlayerCombatTurn();
+                    combat.IfPlayerDeadRunGameOver();
                     ContinueCombat = combat.IsMobDead();
                 }
+                currentArea.Mob = null; // remove mob because Victory
+                //make victory screen in new class
                 CombatDisplay.ClearCombatStatus(); // after this make normal UI re appear
             }            
         }
