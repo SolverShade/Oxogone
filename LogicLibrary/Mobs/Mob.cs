@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LogicLibrary.Mobs
 {
-    public class Mob : Spawnable
+    public class Mob
     {       
         public int ID { get; set; }
         public string Name { get; set; } 
@@ -36,14 +36,6 @@ namespace LogicLibrary.Mobs
             Weapon = weapon;
             Inventory = inventory;
             Description = description; 
-        }
-
-        public void IfDeadRemoveFromMap(Map map, Cordinate cordinate)
-        {
-            if(Health < 0)
-            {
-                
-            }
         }
     }
 }

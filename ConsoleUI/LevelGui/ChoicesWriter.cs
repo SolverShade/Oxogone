@@ -22,7 +22,7 @@ namespace ConsoleUI.LevelGui
             Console.WriteLine("Menu: q(Quit)");
         }
 
-        public static void CombatActions()
+        public static void WriteCombatActions()
         {
             ClearChoices();
 

@@ -26,19 +26,23 @@ namespace ConsoleUI.LevelGui
             ColoredConsole.WriteLine("Enemy".Red());
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());
             ColoredConsole.WriteLine(" Name: " + $"{mob.Name}");
-            ColoredConsole.WriteLine(" Weapon: " + $"{mob.Weapon.WeaponName}");
+            ColoredConsole.WriteLine(" Description: " + mob.Description);
             ColoredConsole.WriteLine("\n Race: " + $"{mob.Race}");
             ColoredConsole.WriteLine(" Class: " + $"{mob.CombatClass}");
-            ColoredConsole.WriteLine("\n Description: " + mob.Description);
+            ColoredConsole.WriteLine(" Weapon: " + $"{mob.Weapon.WeaponName}");
             ColoredConsole.WriteLine("\n Health: " + $"{mob.Health}".Cyan() + "     " + "BaseAttack: " + $"{mob.BaseAttack}".Magenta());
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());            
         }
 
-        public static void DisplayPlayerCombatStats()
+        public static void DisplayPlayerCombatStats(Player player)
         {
-            ColoredConsole.WriteLine("Player".Green());
+            ColoredConsole.WriteLine($"\nPlayer".Green());
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());
-
+            ColoredConsole.WriteLine(" Name: " + $"{player.Name}");
+            ColoredConsole.WriteLine("\n Race: " + $"{player.Race}");
+            ColoredConsole.WriteLine(" Class: " + $"{player.PlayerClass}");          
+            ColoredConsole.WriteLine(" Weapon: " + $"{player.PlayerWeapon.WeaponName}");
+            ColoredConsole.WriteLine("\n Health: " + $"{player.Oxygen}".Cyan() + "     " + "BaseAttack: " + $"{player.BaseAttack}".Magenta());
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());
         }
 

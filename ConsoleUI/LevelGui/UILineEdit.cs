@@ -47,9 +47,14 @@ namespace ConsoleUI
         {
             for (int lineIndex = 0; lineIndex < linesToClear; lineIndex++)
             {
-                UILineEdit.setGuiLines(startingLine + lineIndex);
+                setGuiLines(startingLine + lineIndex);
                 Console.WriteLine(new string(' ', Console.WindowWidth));
             }
+        }
+
+        public static void ClearAllLines()
+        {
+            ClearSpecifiedLines(1, 28);
         }
     }
 }

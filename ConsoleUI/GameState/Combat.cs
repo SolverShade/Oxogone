@@ -40,8 +40,8 @@ namespace ConsoleUI.GameState
 
             if (new List<char> { 'a' }.Contains(commandPrefix))
             {
-                _player.Oxygen -= _mob.BaseAttack;
-                _mob.Health -= _player.BaseAttack; 
+                _player.Oxygen -= _mob.BaseAttack + _mob.Weapon.Damage;
+                _mob.Health -= _player.BaseAttack + _player.PlayerWeapon.Damage; 
             }
             else if (new List<char> { 'q' }.Contains(commandPrefix))
             {
@@ -49,15 +49,23 @@ namespace ConsoleUI.GameState
             }            
         }         
 
-        public bool IsPlayerOrMobDead()
+        public bool IsMobDead()
         {
-            if(_player.Oxygen <= 0 || _mob.Health <= 0) // add game over and victory option 
+            if(_mob.Health <= 0) // add game over and victory option 
             {
                 return true; 
             }
             else
             {
                 return false;
+            }
+        }
+
+        public void IfPlayerDeadRunGameOver()
+        {
+            if(_player.Oxygen <= 0)
+            {
+
             }
         }
 

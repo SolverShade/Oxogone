@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LogicLibrary.Mapping;
 using ConsoleUI.User;
+using System.Threading;
 #endregion
 
 namespace ConsoleUI.GameState
@@ -29,12 +30,12 @@ namespace ConsoleUI.GameState
 
         public void UpdateWorld()
         {
+            CheckForCombat();
+
             StoryWriter.DisplayAreaText(currentArea);
             MiniMap.Update(_player, _map);
             PlayerDisplay.DisplayPlayerStats(_player);
             ChoicesWriter.PossibleActions();
-
-            CheckForCombat();         
 
             commandHandler.HandleCommand();
 
@@ -47,20 +48,17 @@ namespace ConsoleUI.GameState
         {
             if(currentArea.Mob != null)
             {
-                StoryWriter.ClearStoryLines();
-                MiniMap.ClearMiniMap();
-                PlayerDisplay.ClearPlayerLine();
-                ChoicesWriter.CombatActions();
+                ChoicesWriter.WriteCombatActions();
 
                 Combat combat = new Combat(_player, currentArea.Mob);
-
                 bool ContinueCombat = false;
 
                 while (ContinueCombat == false)
                 {
                     CombatDisplay.DisplayMobCombatStats(currentArea.Mob);
+                    CombatDisplay.DisplayPlayerCombatStats(_player);
                     combat.PlayerCombatTurn();
-                    ContinueCombat = combat.IsPlayerOrMobDead();
+                    ContinueCombat = combat.IsMobDead();
                 }
                 CombatDisplay.ClearCombatStatus(); // after this make normal UI re appear
             }            
