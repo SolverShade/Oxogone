@@ -41,9 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameItems\Weapon.cs" />
-    <Compile Include="GameItems\WeaponBuilder.cs" />
-    <Compile Include="Items\Spawnable.cs" />
+    <Compile Include="GameCollectables\CollectableBuilders\PotionBuilder.cs" />
+    <Compile Include="GameCollectables\CollectableBuilders\TreasureBuilder.cs" />
+    <Compile Include="GameCollectables\Collectables\Item.cs" />
+    <Compile Include="GameCollectables\Collectables\Potion.cs" />
+    <Compile Include="GameCollectables\Collectables\Treasure.cs" />
+    <Compile Include="GameCollectables\ICollectable.cs" />
+    <Compile Include="GameCollectables\CollectableBuilders\ItemBuilder.cs" />
+    <Compile Include="GameCollectables\Collectables\Weapon.cs" />
+    <Compile Include="GameCollectables\CollectableBuilders\WeaponBuilder.cs" />
     <Compile Include="Mapping\Area.cs" />
     <Compile Include="Mapping\Cordinate.cs" />
     <Compile Include="Mapping\Map.cs" />
@@ -51,6 +57,7 @@
     <Compile Include="Mobs\MobBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\Player.cs" />
+    <Compile Include="User\PlayerSave.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

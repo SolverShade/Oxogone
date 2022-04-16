@@ -1,11 +1,12 @@
-﻿using System;
+﻿using LogicLibrary.GameCollectables.Collectables;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicLibrary.GameItems
+namespace LogicLibrary.GameCollectables.CollectableBuilders
 {
     public static class WeaponBuilder
     {

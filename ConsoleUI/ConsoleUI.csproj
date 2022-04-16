@@ -46,10 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameState\StateManager.cs" />
-    <Compile Include="GameState\World.cs" />
-    <Compile Include="GameState\States\CombatState.cs" />
     <Compile Include="GameState\ActionCommandHandler.cs" />
+    <Compile Include="GameState\AreaNavigator.cs" />
+    <Compile Include="GameState\StateManager.cs" />
+    <Compile Include="GameState\States\CombatState.cs" />
+    <Compile Include="GameState\World.cs" />
     <Compile Include="LevelGui\CombatDisplay.cs" />
     <Compile Include="LevelGui\GameOverScreen.cs" />
     <Compile Include="LevelGui\MiniMap.cs" />
@@ -58,11 +59,9 @@
     <Compile Include="LevelGui\ChoicesWriter.cs" />
     <Compile Include="User\CharachterSelect.cs" />
     <Compile Include="User\PasswordValidator.cs" />
-    <Compile Include="User\PlayerSave.cs" />
-    <Compile Include="GameState\Program.cs" />
+    <Compile Include="Main\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LevelGui\UILineEdit.cs" />
-    <Compile Include="GameState\AreaNavigator.cs" />
     <Compile Include="Window\WindowListener.cs" />
   </ItemGroup>
   <ItemGroup>

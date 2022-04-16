@@ -1,6 +1,5 @@
 ﻿#region usingStatements 
-using LogicLibrary.GameItems;
-using LogicLibrary.Items;
+using LogicLibrary.GameCollectables.Collectables;
 using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;

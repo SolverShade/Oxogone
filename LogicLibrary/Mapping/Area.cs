@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LogicLibrary.Mapping
 {
-    public class Area
+    public class Area //<--- Room 
     {
         public int ID { get; set; }
         public Cordinate Cordinate { get; set; }

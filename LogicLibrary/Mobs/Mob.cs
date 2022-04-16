@@ -1,6 +1,5 @@
 ﻿#region usingStatements 
-using LogicLibrary.GameItems;
-using LogicLibrary.Items;
+using LogicLibrary.GameCollectables.Collectables;
 using LogicLibrary.Mapping;
 using System;
 using System.Collections.Generic;
@@ -22,8 +21,6 @@ namespace LogicLibrary.Mobs
         public Weapon Weapon { get; set; }
         public List<string> Inventory { get; set; }
         public string Description { get; set; }
-
-        //TODO: Class, Weapon, and Inventory will be randomly generated. currently they are only built at string placeholders
 
         public Mob(int id, string race, string name, string combatClass, int health, int baseAttack, Weapon weapon, List<string> inventory, string description)
         {

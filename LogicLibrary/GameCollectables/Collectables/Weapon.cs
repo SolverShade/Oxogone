@@ -1,20 +1,21 @@
-﻿using System;
+﻿using LogicLibrary.GameCollectables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicLibrary.GameItems
+namespace LogicLibrary.GameCollectables.Collectables
 {
-    public class Weapon
+    public class Weapon : ICollectable
     {
-        public string WeaponName;
-        public string Description;
-        public string DamageType;
+        public string WeaponName { get; set; }
+        public string Description { get; set; }
+        public string DamageType { get; set; }
 
-        public int Id;
-        public int Price;
-        public int Damage;
+        public int Id { get; set; }
+        public int Price { get; set; }
+        public int Damage { get; set; }
 
         public Weapon(int id, string name, string description, string damageType, int price, int damage)
         {
