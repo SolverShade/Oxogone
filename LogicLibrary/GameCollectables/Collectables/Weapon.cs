@@ -9,7 +9,7 @@ namespace LogicLibrary.GameCollectables.Collectables
 {
     public class Weapon : ICollectable
     {
-        public string WeaponName { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public string DamageType { get; set; }
 
@@ -20,7 +20,7 @@ namespace LogicLibrary.GameCollectables.Collectables
         public Weapon(int id, string name, string description, string damageType, int price, int damage)
         {
             Id = id;
-            WeaponName = name;
+            Name = name;
             Description = description;
             Price = price;
             DamageType = damageType;

@@ -16,9 +16,9 @@ namespace ConsoleUI.LevelGui
         {
             ClearChoices();
 
-            Console.WriteLine("-ACTIONS-");
+            Console.WriteLine("-CHOICES-");
             Console.WriteLine("Movement: n(North), e(East), s(South), w(West) ");
-            Console.WriteLine("Combat: a(Attack)");
+            Console.WriteLine("Actions: i(Inventory), r(rummage)");
             Console.WriteLine("Menu: q(Quit)");
         }
 

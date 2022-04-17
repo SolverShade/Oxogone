@@ -10,37 +10,36 @@ namespace ConsoleUI
 {
     public static class UILineEdit
     {
-        const int consoleLines = 28;
-        private static int currentLinePosition = consoleLines;
+        private static int USERINPUTLINE = 28;
 
         public static void setGuiLines(int lineLocation, int cursorPlacement = 0)
         {
-            if (currentLinePosition < lineLocation)
+            if (USERINPUTLINE < lineLocation)
             {
                 GetUpperLine(lineLocation, cursorPlacement);
             }
-            else if (currentLinePosition > lineLocation)
+            else if (USERINPUTLINE > lineLocation)
             {
                 GetLowerLine(lineLocation, cursorPlacement);
             }
-            else if (currentLinePosition == lineLocation)
+            else if (USERINPUTLINE == lineLocation)
             {
-                Console.SetCursorPosition(cursorPlacement, (currentLinePosition - 1));
+                Console.SetCursorPosition(cursorPlacement, (USERINPUTLINE - 1));
             }
         }
 
         private static void GetUpperLine(int lineLocation, int cursorPlacement)
         {
-            int linesToRemove = currentLinePosition - lineLocation;
-            Console.SetCursorPosition(cursorPlacement, (currentLinePosition - 1) - linesToRemove);
-            currentLinePosition = currentLinePosition - linesToRemove;
+            int linesToRemove = USERINPUTLINE - lineLocation;
+            Console.SetCursorPosition(cursorPlacement, (USERINPUTLINE - 1) - linesToRemove);
+            USERINPUTLINE = USERINPUTLINE - linesToRemove;
         }
 
         private static void GetLowerLine(int lineLocation, int cursorPlacement)
         {
-            int linesToAdd = lineLocation - currentLinePosition;
-            Console.SetCursorPosition(cursorPlacement, (currentLinePosition - 1) + linesToAdd);
-            currentLinePosition = currentLinePosition + linesToAdd;
+            int linesToAdd = lineLocation - USERINPUTLINE;
+            Console.SetCursorPosition(cursorPlacement, (USERINPUTLINE - 1) + linesToAdd);
+            USERINPUTLINE = USERINPUTLINE + linesToAdd;
         }
 
         public static void ClearSpecifiedLines(int startingLine, int linesToClear)
@@ -56,6 +55,11 @@ namespace ConsoleUI
         {
             ClearSpecifiedLines(1, 28);
             UILineEdit.setGuiLines(1);
+        }
+
+        public static void ClearUserInputLine()
+        {
+            ClearSpecifiedLines(28, 1);
         }
     }
 }

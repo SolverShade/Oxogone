@@ -1,4 +1,5 @@
 ﻿#region usingStatements 
+using LogicLibrary.GameCollectables;
 using LogicLibrary.Mobs;
 using System;
 using System.Collections.Generic;
@@ -40,9 +41,10 @@ namespace LogicLibrary.Mapping
             {
                 string line = File.ReadLines(AreaTypesPath).ElementAt(areaIndex);
                 string[] AreaTokens = line.Split(',');
-                List<string> UsableItems = AreaTokens[5].Split('-').ToList<string>();
+                List<string> unBakedCollectables = AreaTokens[5].Split('-').ToList<string>();
+                List<ICollectable> BakedColletables = CollectableBuilder.GetCollectables(unBakedCollectables);
                 Mob mob = MobBuilder.GenerateMob(AreaTokens[4]); // Extract Mob From Text 
-                customAreas.Add(new Area(areaIndex, new Cordinate(int.Parse(AreaTokens[0]), int.Parse(AreaTokens[1])), AreaTokens[2], AreaTokens[3], mob, UsableItems));
+                customAreas.Add(new Area(areaIndex, new Cordinate(int.Parse(AreaTokens[0]), int.Parse(AreaTokens[1])), AreaTokens[2], AreaTokens[3], mob, BakedColletables, AreaTokens[6]));
             }
 
             foreach (Area area in customAreas)
@@ -61,10 +63,32 @@ namespace LogicLibrary.Mapping
             {
                 for (int y = 0; y < (Areas.GetLength(1)); y++)
                 {
-                    areas[x, y] = new Area(-1, (new Cordinate(x, y)), "", "Wall", null, new List<string> { "" });
+                    areas[x, y] = new Area(-1, (new Cordinate(x, y)), "", "Wall", null, new List<ICollectable> { }, "UnNamed");
                 }
             }
             return areas;
+        }
+
+        public int GetRoomExits(Area currentArea)
+        {
+            int exits = 0;
+            if(Areas[currentArea.Cordinate.X + 1, currentArea.Cordinate.Y].RoomType != "Wall")
+            {
+                exits++;
+            }
+            if (Areas[currentArea.Cordinate.X - 1, currentArea.Cordinate.Y].RoomType != "Wall")
+            {
+                exits++;
+            }
+            if (Areas[currentArea.Cordinate.X, currentArea.Cordinate.Y + 1].RoomType != "Wall")
+            {
+                exits++;
+            }
+            if (Areas[currentArea.Cordinate.X, currentArea.Cordinate.Y - 1].RoomType != "Wall")
+            {
+                exits++;
+            }
+            return exits;
         }
 
     }

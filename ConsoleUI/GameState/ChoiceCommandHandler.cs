@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleUI.LevelGui;
+using ConsoleUI.GameState.States;
 #endregion
 
 namespace ConsoleUI.GameState
 {
-    public class ActionCommandHandler
+    public class ChoiceCommandHandler
     {
         protected Player _player { get; set; }
         protected Map _map { get; set; }
@@ -20,7 +21,7 @@ namespace ConsoleUI.GameState
 
         const int userInputLine = 28;
 
-        public ActionCommandHandler(Player player, Map map)
+        public ChoiceCommandHandler(Player player, Map map)
         {
             _player = player;
             _map = map;
@@ -49,9 +50,14 @@ namespace ConsoleUI.GameState
                     areaNavigator.MoveArea(commandPrefix);
                     commandsHandled = areaNavigator.HasPlayerMoved();
                 }
-                else if (new List<char> { 'a' }.Contains(commandPrefix))
+                else if (new List<char> { 'i' }.Contains(commandPrefix))
                 {
-                    CombatDisplay.NoMobToAttack();
+                    StateManager.RunInventory(_player, _map.Areas[_player.Cordinate.X, _player.Cordinate.Y]);                    
+                    commandsHandled = true;
+                }
+                else if (new List<char> { 'r' }.Contains(commandPrefix))
+                {
+                    areaNavigator.SearchArea();
                 }
                 else if (new List<char> { 'q' }.Contains(commandPrefix))
                 {                    

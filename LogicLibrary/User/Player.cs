@@ -1,4 +1,5 @@
 ﻿#region usingStatements 
+using LogicLibrary.GameCollectables;
 using LogicLibrary.GameCollectables.Collectables;
 using LogicLibrary.Mapping;
 using System;
@@ -21,10 +22,10 @@ namespace LogicLibrary.User
         public int Oxygen { get; set; } //Health
         public int BaseAttack { get; set; }
         public Cordinate Cordinate { get; set; } //Location
-        public List<string> Inventory { get; set; }
+        public List<ICollectable> Inventory { get; set; }
         public List<string> Quests { get; set; }
 
-        public Player(int id, string name, string race, string playerClass, Weapon weapon, int oxygen, int baseAttack, Cordinate cordinate, List<string> inventory, List<string> quests)
+        public Player(int id, string name, string race, string playerClass, Weapon weapon, int oxygen, int baseAttack, Cordinate cordinate, List<ICollectable> inventory, List<string> quests)
         {
             Cordinate = cordinate;
         }
@@ -40,7 +41,7 @@ namespace LogicLibrary.User
             PlayerWeapon = new Weapon(329874, "Spoon", "is sharp", "cut", 1, 5);
             BaseAttack = 20;
             Cordinate = new Cordinate(10, 10);
-            Inventory = new List<string>() {""};
+            Inventory = new List<ICollectable>() {new Potion(9009, 20, "small oxygen canister", "gives oxygen", "Heal")}; // starting item to test collectables. remove later. 
             Quests = new List<string>() { "Find a key to the locked door" };
         }
     }

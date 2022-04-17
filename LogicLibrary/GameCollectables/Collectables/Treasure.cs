@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicLibrary.GameCollectables.Collectables
 {
-    class Treasure: ICollectable
+    public class Treasure: ICollectable
     {
         public int ID { get; set; }
         public int Price { get; set; }

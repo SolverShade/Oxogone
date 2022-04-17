@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LogicLibrary.GameCollectables;
+using ConsoleUI.LevelGui;
 #endregion
 
 namespace ConsoleUI.GameState
@@ -16,6 +18,7 @@ namespace ConsoleUI.GameState
         public Player Player { get; set; }
 
         public Cordinate CurrentCordinate;
+        public Area CurrentArea;
 
         private List<string> bannedAreas = new List<string>() { "Wall", "LockedDoor" };     
         public AreaNavigator(Player player, Map map)
@@ -24,6 +27,7 @@ namespace ConsoleUI.GameState
             Map = map;
 
             CurrentCordinate = Player.Cordinate;
+            CurrentArea = Map.Areas[Player.Cordinate.X, Player.Cordinate.Y];
         }
 
         public void MoveArea(char commandPrefix)
@@ -49,9 +53,33 @@ namespace ConsoleUI.GameState
             }           
         }
 
+        public void SearchArea()
+        {
+            List<ICollectable> collectables = new List<ICollectable>();
+            List<string> collectableNames = new List<string>();
+
+            foreach(ICollectable collectable in CurrentArea.Collectables)
+            {
+                collectables.Add(collectable);
+                collectableNames.Add(collectable.Name);
+            }
+
+            if(collectableNames.Count > 0)
+            {
+                foreach (string name in collectableNames)
+                {
+                    StatusWriter.DisplayStatusMessage("You Found: " + name + " + ");
+                }
+            }
+            else
+            {
+                StatusWriter.DisplayStatusMessage("You Found Nothing");
+            }
+        }
+
         public bool HasPlayerMoved()
         {
-            if (!bannedAreas.Contains(Map.Areas[CurrentCordinate.X, CurrentCordinate.Y].Name))
+            if (!bannedAreas.Contains(Map.Areas[CurrentCordinate.X, CurrentCordinate.Y].RoomType))
             {
                 Player.Cordinate = CurrentCordinate;
                 return true;

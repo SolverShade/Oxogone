@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace LogicLibrary.GameCollectables
 {
-    interface ICollectable
+    public interface ICollectable
     {
+       string Name { get; set; }
     }
 }

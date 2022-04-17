@@ -22,8 +22,9 @@ namespace ConsoleUI.LevelGui
 
         public static void Update(Player player, Map map)
         {
-            UILineEdit.ClearSpecifiedLines(MINIMAPLINE, MAXMINIMAPLINES);
+            ClearMiniMap();
             DisplayPlayerCordinate(player);
+            DisplayAreaInfo(player, map);
             LoadIdenitifers();
 
             for(int lineIndex = 0; lineIndex < marks.Length; lineIndex++)   //Gets the correct cordinates where the next line should be written. the horizontal spacing is the median of each marks value.
@@ -41,7 +42,7 @@ namespace ConsoleUI.LevelGui
                     int mapXCordinate = player.Cordinate.X + horizontalFromPlayer;
                     int mapYCordinate = player.Cordinate.Y + verticalFromPlayer;
 
-                    string areaType = map.Areas[mapXCordinate, mapYCordinate].Name;
+                    string areaType = map.Areas[mapXCordinate, mapYCordinate].RoomType;
 
                     if (horizontalFromPlayer == 0 && verticalFromPlayer == 0)
                     {
@@ -95,8 +96,20 @@ namespace ConsoleUI.LevelGui
 
         private static void DisplayPlayerCordinate(Player player)
         {
-            UILineEdit.setGuiLines((MINIMAPLINE - 4), MINIMAPSPACE - 3);
+            UILineEdit.setGuiLines((MINIMAPLINE - 4), 3);
             Console.Write("(" + player.Cordinate.X.ToString() + "," + player.Cordinate.Y.ToString() + ")");
+        }
+
+        private static void DisplayAreaInfo(Player player, Map  map)
+        {
+
+            Area currentArea = map.Areas[player.Cordinate.X, player.Cordinate.Y];
+            currentArea.Exits = map.GetRoomExits(currentArea);
+
+            UILineEdit.setGuiLines((MINIMAPLINE - 4), 12);
+            Console.WriteLine("Room: " + currentArea.Name);
+            UILineEdit.setGuiLines((MINIMAPLINE - 4), 20 + currentArea.Name.Length);
+            Console.WriteLine("Exits: " + currentArea.Exits);
         }
 
         public static void ClearMiniMap()

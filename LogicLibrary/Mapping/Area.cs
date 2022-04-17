@@ -1,4 +1,5 @@
 ﻿#region usingStatements 
+using LogicLibrary.GameCollectables;
 using LogicLibrary.Mobs;
 using System;
 using System.Collections.Generic;
@@ -14,19 +15,21 @@ namespace LogicLibrary.Mapping
         public int ID { get; set; }
         public Cordinate Cordinate { get; set; }
         public string Description { get; set; }
+        public string RoomType { get; set; }
         public string Name { get; set; }
         public Mob Mob { get; set; }
         public int Exits { get; set; }
-        public List<string> Spawnable { get; set; } // TODO: change from list string to Spawnable Type
+        public List<ICollectable> Collectables { get; set; } // TODO: change from list string to Spawnable Type
 
-        public Area(int id, Cordinate cordinate, string description, string name, Mob mob, List<string> spawnable) 
+        public Area(int id, Cordinate cordinate, string description, string roomType, Mob mob, List<ICollectable> collectables, string name) 
         {
             ID = id;
             Cordinate = cordinate;
             Description = description;
-            Name = name;
+            RoomType = roomType;
             Mob = mob;
-            Spawnable = spawnable; 
+            Collectables = collectables;
+            Name = name;
         }
     }
 }

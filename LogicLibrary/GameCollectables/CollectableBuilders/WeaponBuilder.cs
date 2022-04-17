@@ -35,7 +35,7 @@ namespace LogicLibrary.GameCollectables.CollectableBuilders
             }
         }
 
-        private static List<string> PossibleWeapons()
+        public static List<string> PossibleWeapons()
         {
             List<string> possibleWeapons = new List<string>();
             foreach (string line in File.ReadAllLines(WeaponsPath))

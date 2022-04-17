@@ -35,7 +35,7 @@ namespace ConsoleUI.LevelGui
             ColoredConsole.WriteLine(" Description: " + mob.Description);
             ColoredConsole.WriteLine("\n Race: " + $"{mob.Race}");
             ColoredConsole.WriteLine(" Class: " + $"{mob.CombatClass}");
-            ColoredConsole.WriteLine(" Weapon: " + $"{mob.Weapon.WeaponName}");
+            ColoredConsole.WriteLine(" Weapon: " + $"{mob.Weapon.Name}");
             ColoredConsole.WriteLine("\n Health: " + $"{mob.Health}".Cyan() + "     " + "BaseAttack: " + $"{mob.BaseAttack}".Magenta());
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());            
         }
@@ -47,7 +47,7 @@ namespace ConsoleUI.LevelGui
             ColoredConsole.WriteLine(" Name: " + $"{player.Name}");
             ColoredConsole.WriteLine("\n Race: " + $"{player.Race}");
             ColoredConsole.WriteLine(" Class: " + $"{player.PlayerClass}");          
-            ColoredConsole.WriteLine(" Weapon: " + $"{player.PlayerWeapon.WeaponName}");
+            ColoredConsole.WriteLine(" Weapon: " + $"{player.PlayerWeapon.Name}");
             ColoredConsole.WriteLine("\n Health: " + $"{player.Oxygen}".Cyan() + "     " + "BaseAttack: " + $"{player.BaseAttack}".Magenta());
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());
         }

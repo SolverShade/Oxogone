@@ -19,14 +19,14 @@ namespace ConsoleUI.GameState
         public Player Player { get; set; }
         public Area CurrentArea { get; set; }
         public Map Map { get; set; }       
-        public ActionCommandHandler CommandHandler { get; set; }
+        public ChoiceCommandHandler CommandHandler { get; set; }
         public World(Player player, Map map)
         {
             Map = map;
             Player = player;        
 
             CurrentArea = Map.Areas[Player.Cordinate.X, Player.Cordinate.Y];
-            CommandHandler = new ActionCommandHandler(Player, Map);
+            CommandHandler = new ChoiceCommandHandler(Player, Map);
         }
 
         public void UpdateWorld()

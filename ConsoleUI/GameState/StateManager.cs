@@ -30,6 +30,17 @@ namespace ConsoleUI.GameState.States
             CombatDisplay.ClearCombatStatus(); // after this make normal UI re appear
         }
 
+        public static void RunInventory(Player player, Area currentArea)
+        {
+            UILineEdit.ClearAllLines();
+            InventoryScreen.DisplayInventory(player);
+            InventoryScreen.DisplayInventoryActions();
+
+            InventoryState inventoryState = new InventoryState(player, currentArea);
+            inventoryState.HandleInventoryCommand();
+            UILineEdit.ClearAllLines();
+        }
+
         public static void IfPlayerDeadRunGameOver(Player player)
         {
             if (player.Oxygen <= 0)
