@@ -17,7 +17,7 @@ namespace ConsoleUI.User
         {
             ClearPlayerLine();
 
-            ColoredConsole.WriteLine("Player Oxogone: " + $"{player.Oxygen}".Green());
+            ColoredConsole.WriteLine("Player Oxogone: " + $"{player.Health}".Green());
         }
 
         public static void ClearPlayerLine()

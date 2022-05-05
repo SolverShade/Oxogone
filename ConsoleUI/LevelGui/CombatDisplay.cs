@@ -46,9 +46,9 @@ namespace ConsoleUI.LevelGui
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());
             ColoredConsole.WriteLine(" Name: " + $"{player.Name}");
             ColoredConsole.WriteLine("\n Race: " + $"{player.Race}");
-            ColoredConsole.WriteLine(" Class: " + $"{player.PlayerClass}");          
-            ColoredConsole.WriteLine(" Weapon: " + $"{player.PlayerWeapon.Name}");
-            ColoredConsole.WriteLine("\n Health: " + $"{player.Oxygen}".Cyan() + "     " + "BaseAttack: " + $"{player.BaseAttack}".Magenta());
+            ColoredConsole.WriteLine(" Class: " + $"{player.CombatClass}");          
+            ColoredConsole.WriteLine(" Weapon: " + $"{player.Weapon.Name}");
+            ColoredConsole.WriteLine("\n Health: " + $"{player.Health}".Cyan() + "     " + "BaseAttack: " + $"{player.BaseAttack}".Magenta());
             ColoredConsole.WriteLine("------------------------------------------------".Yellow());
         }
 

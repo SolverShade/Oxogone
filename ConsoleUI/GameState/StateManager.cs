@@ -43,7 +43,7 @@ namespace ConsoleUI.GameState.States
 
         public static void IfPlayerDeadRunGameOver(Player player)
         {
-            if (player.Oxygen <= 0)
+            if (player.Health <= 0)
             {
                 GameOverScreen.DisplayGameOverDialoug();
             }

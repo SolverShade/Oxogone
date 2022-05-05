@@ -55,6 +55,7 @@ namespace ConsoleUI.GameState
 
         public void SearchArea()
         {
+            CurrentArea = Map.Areas[Player.Cordinate.X, Player.Cordinate.Y];
             List<ICollectable> collectables = new List<ICollectable>();
             List<string> collectableNames = new List<string>();
 

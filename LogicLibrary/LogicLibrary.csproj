@@ -47,6 +47,7 @@
     <Compile Include="GameCollectables\Collectables\Item.cs" />
     <Compile Include="GameCollectables\Collectables\Potion.cs" />
     <Compile Include="GameCollectables\Collectables\Treasure.cs" />
+    <Compile Include="Creature\LivingCreature.cs" />
     <Compile Include="GameCollectables\ICollectable.cs" />
     <Compile Include="GameCollectables\CollectableBuilders\ItemBuilder.cs" />
     <Compile Include="GameCollectables\Collectables\Weapon.cs" />

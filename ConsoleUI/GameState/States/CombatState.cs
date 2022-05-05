@@ -40,8 +40,8 @@ namespace ConsoleUI.GameState.States
 
             if (new List<char> { 'a' }.Contains(commandPrefix))
             {
-                _player.Oxygen -= _mob.BaseAttack + _mob.Weapon.Damage;
-                _mob.Health -= _player.BaseAttack + _player.PlayerWeapon.Damage; 
+                _player.Health -= _mob.BaseAttack + _mob.Weapon.Damage;
+                _mob.Health -= _player.BaseAttack + _player.Weapon.Damage; 
             }
             else if (new List<char> { 'q' }.Contains(commandPrefix))
             {
